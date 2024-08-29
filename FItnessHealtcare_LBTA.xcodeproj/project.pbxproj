@@ -30,6 +30,7 @@
 		884122EC2C6FA7D300C42074 /* BackNavigationButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884122EB2C6FA7D300C42074 /* BackNavigationButtonView.swift */; };
 		884122EE2C6FADF200C42074 /* Ext+UINavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884122ED2C6FADF200C42074 /* Ext+UINavigation.swift */; };
 		884122F02C6FAEB800C42074 /* ProfileCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884122EF2C6FAEB800C42074 /* ProfileCellView.swift */; };
+		885E61B92C806E1A00CB93E2 /* ToolsTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 885E61B82C806E1A00CB93E2 /* ToolsTypeView.swift */; };
 		8861FE002C732A92004B3B36 /* WorkoutDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8861FDFF2C732A92004B3B36 /* WorkoutDetailView.swift */; };
 		8861FE022C7478FB004B3B36 /* PremiumPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8861FE012C7478FB004B3B36 /* PremiumPopupView.swift */; };
 		8861FE042C7479A5004B3B36 /* CongratulationPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8861FE032C7479A5004B3B36 /* CongratulationPopupView.swift */; };
@@ -83,6 +84,7 @@
 		884122EB2C6FA7D300C42074 /* BackNavigationButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackNavigationButtonView.swift; sourceTree = "<group>"; };
 		884122ED2C6FADF200C42074 /* Ext+UINavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ext+UINavigation.swift"; sourceTree = "<group>"; };
 		884122EF2C6FAEB800C42074 /* ProfileCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCellView.swift; sourceTree = "<group>"; };
+		885E61B82C806E1A00CB93E2 /* ToolsTypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolsTypeView.swift; sourceTree = "<group>"; };
 		8861FDFF2C732A92004B3B36 /* WorkoutDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutDetailView.swift; sourceTree = "<group>"; };
 		8861FE012C7478FB004B3B36 /* PremiumPopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PremiumPopupView.swift; sourceTree = "<group>"; };
 		8861FE032C7479A5004B3B36 /* CongratulationPopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CongratulationPopupView.swift; sourceTree = "<group>"; };
@@ -209,6 +211,7 @@
 				884122EB2C6FA7D300C42074 /* BackNavigationButtonView.swift */,
 				88CB6AE92C75BEDF00DB3BC9 /* BoxView.swift */,
 				88CB6AEE2C76237700DB3BC9 /* CustomAppointmentButton.swift */,
+				885E61B82C806E1A00CB93E2 /* ToolsTypeView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -426,6 +429,7 @@
 				884122E92C6FA24200C42074 /* ProfileView.swift in Sources */,
 				8861FE0D2C74D65D004B3B36 /* BookAppointmentView.swift in Sources */,
 				884122DE2C6CE4FE00C42074 /* StatisticsCalendarCellView.swift in Sources */,
+				885E61B92C806E1A00CB93E2 /* ToolsTypeView.swift in Sources */,
 				884122CE2C6B3ABC00C42074 /* HomeView.swift in Sources */,
 				88CB6AF12C7CCE9B00DB3BC9 /* LoginViewModel.swift in Sources */,
 				88C8DB6F2C6A01E500FC3F7F /* TabbarView.swift in Sources */,

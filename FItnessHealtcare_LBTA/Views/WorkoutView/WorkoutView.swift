@@ -13,6 +13,8 @@ struct WorkoutView: View {
     
     @StateObject private var vm = WorkoutViewModel()
     
+    @State private var isSearchText: Bool = false
+    
     private let columns = [
         GridItem(.flexible(), spacing: 10),
         GridItem(.flexible(), spacing: 10),
@@ -62,50 +64,7 @@ private extension WorkoutView {
                 .padding(.horizontal, 10)
                 .padding(.bottom, 10)
             
-            HStack(spacing: 20) {
-                Button { 
-                    withAnimation(.spring) {
-                        vm.tool = .filtering
-                    }
-                } label: {
-                    HStack(spacing: 4) {
-                        Image(systemName: "camera.filters")
-                        Text("Filters")
-                    }
-                }
-                .buttonStyle(.plain)
-                
-                RoundedRectangle(cornerRadius: 0.5)
-                    .frame(width: 1, height: 30)
-                
-                Button { 
-                    withAnimation(.spring) {
-                        vm.tool = .sorting
-                    }
-                } label: {
-                    HStack(spacing: 4) {
-                        Image(systemName: "arrow.up.arrow.down")
-                        Text("Sorting")
-                    }
-                }
-                .buttonStyle(.plain)
-                
-                RoundedRectangle(cornerRadius: 0.5)
-                    .frame(width: 1, height: 30)
-                
-                Button { 
-                    withAnimation(.spring) {
-                        vm.tool = .searching
-                    }
-                } label: {
-                    HStack(spacing: 4) {
-                        Image(systemName: "magnifyingglass")
-                        Text("Search")
-                    }
-                }
-                .buttonStyle(.plain)
-            }
-            .padding(.bottom, 25)
+            ToolsTypeView(isSearchText: $isSearchText, vm: vm)
         }
         .foregroundStyle(.tint)
         .background(Color.raisinBlack.opacity(0.5))
@@ -116,29 +75,27 @@ private extension WorkoutView {
     var workoutScrollSection: some View {
         ScrollView(.vertical, showsIndicators: false) {
             LazyVGrid(columns: vm.workoutSelected != .trainers ? columns : grids, alignment: .center, spacing: 10) {
-//                if let models = vm.mockWorkout[vm.workoutSelected] {
-                    ForEach(vm.filteredAndSortedModels) { item in
-                        if vm.workoutSelected != .trainers {
-                            WorkoutCellView(
-                                workout: Binding(
-                                    get: { item },
-                                    set: { updatedModel in
-                                        if let index = vm.mockWorkout[vm.workoutSelected]?.firstIndex(where: { $0.id == item.id }) {
-                                            vm.mockWorkout[vm.workoutSelected]?[index] = updatedModel
-                                        }
-                                    })
-                            )
-                                .onTapGesture {
-                                    session.path.append(.workoutDetail(item))
-                                }
-                        } else {
-                            WorkoutTrainersCellView(workout: item)
-                                .onTapGesture {
-                                    session.path.append(.trainerDetail(item))
-                                }
+                ForEach(vm.filteredAndSortedModels) { item in
+                    if vm.workoutSelected != .trainers {
+                        WorkoutCellView(
+                            workout: Binding(
+                                get: { item },
+                                set: { updatedModel in
+                                    if let index = vm.mockWorkout[vm.workoutSelected]?.firstIndex(where: { $0.id == item.id }) {
+                                        vm.mockWorkout[vm.workoutSelected]?[index] = updatedModel
+                                    }
+                                })
+                        )
+                        .onTapGesture {
+                            session.path.append(.workoutDetail(item))
                         }
+                    } else {
+                        WorkoutTrainersCellView(workout: item)
+                            .onTapGesture {
+                                session.path.append(.trainerDetail(item))
+                            }
                     }
-//                }
+                }
             }
             .padding(.bottom, 90)
             .padding(.top, 250)

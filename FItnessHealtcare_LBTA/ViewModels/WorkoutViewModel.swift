@@ -46,7 +46,7 @@ final class WorkoutViewModel: ObservableObject {
             workouts = mockWorkout[workoutSelected]?.sorted(by: { $0.lvl > $1.lvl }) ?? []
         case .searching:
             workouts = mockWorkout[workoutSelected]?.filter {
-                searchText.isEmpty || $0.name.localizedCaseInsensitiveContains(searchText)
+                searchText.isEmpty || $0.name.localizedCaseInsensitiveContains(searchText) || $0.title.localizedCaseInsensitiveContains(searchText)
             } ?? []
         case .defaulting:
             workouts = mockWorkout[workoutSelected] ?? []
