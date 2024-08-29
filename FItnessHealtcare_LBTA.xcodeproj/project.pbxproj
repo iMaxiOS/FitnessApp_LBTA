@@ -1,0 +1,677 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		884122BF2C6B2BC000C42074 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884122BE2C6B2BC000C42074 /* OnboardingView.swift */; };
+		884122C12C6B2C5400C42074 /* Ext+Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884122C02C6B2C5400C42074 /* Ext+Font.swift */; };
+		884122C72C6B30E400C42074 /* PlusJakartaSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 884122C32C6B30E400C42074 /* PlusJakartaSans-Bold.ttf */; };
+		884122C82C6B30E400C42074 /* PlusJakartaSans-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 884122C42C6B30E400C42074 /* PlusJakartaSans-SemiBold.ttf */; };
+		884122C92C6B30E400C42074 /* PlusJakartaSans-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 884122C52C6B30E400C42074 /* PlusJakartaSans-Medium.ttf */; };
+		884122CA2C6B30E400C42074 /* PlusJakartaSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 884122C62C6B30E400C42074 /* PlusJakartaSans-Regular.ttf */; };
+		884122CE2C6B3ABC00C42074 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884122CD2C6B3ABC00C42074 /* HomeView.swift */; };
+		884122D02C6BA09200C42074 /* DailyActivitySectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884122CF2C6BA09200C42074 /* DailyActivitySectionView.swift */; };
+		884122D22C6BA0F700C42074 /* StepsSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884122D12C6BA0F700C42074 /* StepsSectionView.swift */; };
+		884122D42C6BA13900C42074 /* WorkoutsSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884122D32C6BA13900C42074 /* WorkoutsSectionView.swift */; };
+		884122D62C6C8B4000C42074 /* WorkoutsCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884122D52C6C8B4000C42074 /* WorkoutsCellView.swift */; };
+		884122D82C6C8FEC00C42074 /* FoodSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884122D72C6C8FEC00C42074 /* FoodSectionView.swift */; };
+		884122DA2C6C919600C42074 /* MealTipsSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884122D92C6C919600C42074 /* MealTipsSectionView.swift */; };
+		884122DC2C6C9C6300C42074 /* MealHorizontalCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884122DB2C6C9C6300C42074 /* MealHorizontalCellView.swift */; };
+		884122DE2C6CE4FE00C42074 /* StatisticsCalendarCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884122DD2C6CE4FE00C42074 /* StatisticsCalendarCellView.swift */; };
+		884122E02C6CEDBA00C42074 /* StatisticsFoodSectionVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884122DF2C6CEDBA00C42074 /* StatisticsFoodSectionVIew.swift */; };
+		884122E22C6DE0BB00C42074 /* StatisticsFitnessSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884122E12C6DE0BB00C42074 /* StatisticsFitnessSectionView.swift */; };
+		884122E42C6F342300C42074 /* Ext+SafeAreaInsets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884122E32C6F342300C42074 /* Ext+SafeAreaInsets.swift */; };
+		884122E62C6F7B3E00C42074 /* Ext+View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884122E52C6F7B3E00C42074 /* Ext+View.swift */; };
+		884122E92C6FA24200C42074 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884122E82C6FA24200C42074 /* ProfileView.swift */; };
+		884122EC2C6FA7D300C42074 /* BackNavigationButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884122EB2C6FA7D300C42074 /* BackNavigationButtonView.swift */; };
+		884122EE2C6FADF200C42074 /* Ext+UINavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884122ED2C6FADF200C42074 /* Ext+UINavigation.swift */; };
+		884122F02C6FAEB800C42074 /* ProfileCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884122EF2C6FAEB800C42074 /* ProfileCellView.swift */; };
+		8861FE002C732A92004B3B36 /* WorkoutDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8861FDFF2C732A92004B3B36 /* WorkoutDetailView.swift */; };
+		8861FE022C7478FB004B3B36 /* PremiumPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8861FE012C7478FB004B3B36 /* PremiumPopupView.swift */; };
+		8861FE042C7479A5004B3B36 /* CongratulationPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8861FE032C7479A5004B3B36 /* CongratulationPopupView.swift */; };
+		8861FE072C7487EB004B3B36 /* MealDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8861FE062C7487EB004B3B36 /* MealDetailView.swift */; };
+		8861FE092C74C33D004B3B36 /* WorkoutTrainersCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8861FE082C74C33D004B3B36 /* WorkoutTrainersCellView.swift */; };
+		8861FE0B2C74CD88004B3B36 /* TrainerDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8861FE0A2C74CD88004B3B36 /* TrainerDetailView.swift */; };
+		8861FE0D2C74D65D004B3B36 /* BookAppointmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8861FE0C2C74D65D004B3B36 /* BookAppointmentView.swift */; };
+		88C8DB4A2C69F2B300FC3F7F /* FItnessHealtcare_LBTAApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C8DB492C69F2B300FC3F7F /* FItnessHealtcare_LBTAApp.swift */; };
+		88C8DB4C2C69F2B300FC3F7F /* WorkoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C8DB4B2C69F2B300FC3F7F /* WorkoutView.swift */; };
+		88C8DB4E2C69F2B400FC3F7F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 88C8DB4D2C69F2B400FC3F7F /* Assets.xcassets */; };
+		88C8DB512C69F2B400FC3F7F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 88C8DB502C69F2B400FC3F7F /* Preview Assets.xcassets */; };
+		88C8DB5E2C69F99E00FC3F7F /* MealView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C8DB5D2C69F99E00FC3F7F /* MealView.swift */; };
+		88C8DB602C69F9AD00FC3F7F /* StatisticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C8DB5F2C69F9AD00FC3F7F /* StatisticsView.swift */; };
+		88C8DB622C69F9BC00FC3F7F /* MyPlanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C8DB612C69F9BC00FC3F7F /* MyPlanView.swift */; };
+		88C8DB6F2C6A01E500FC3F7F /* TabbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C8DB6E2C6A01E500FC3F7F /* TabbarView.swift */; };
+		88C8DB712C6A02F000FC3F7F /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C8DB702C6A02F000FC3F7F /* SessionManager.swift */; };
+		88C8DB732C6A409200FC3F7F /* TabType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C8DB722C6A409200FC3F7F /* TabType.swift */; };
+		88C8DB762C6A54B200FC3F7F /* WorkoutHorizontalCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C8DB752C6A54B200FC3F7F /* WorkoutHorizontalCellView.swift */; };
+		88C8DB782C6A565800FC3F7F /* WorkoutCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C8DB772C6A565800FC3F7F /* WorkoutCellView.swift */; };
+		88C8DB7A2C6A5E9D00FC3F7F /* WorkoutModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C8DB792C6A5E9D00FC3F7F /* WorkoutModel.swift */; };
+		88CB6AEA2C75BEDF00DB3BC9 /* BoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88CB6AE92C75BEDF00DB3BC9 /* BoxView.swift */; };
+		88CB6AED2C76227800DB3BC9 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88CB6AEC2C76227800DB3BC9 /* LoginView.swift */; };
+		88CB6AEF2C76237700DB3BC9 /* CustomAppointmentButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88CB6AEE2C76237700DB3BC9 /* CustomAppointmentButton.swift */; };
+		88CB6AF12C7CCE9B00DB3BC9 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88CB6AF02C7CCE9B00DB3BC9 /* LoginViewModel.swift */; };
+		88CB6AF32C7DF24E00DB3BC9 /* WorkoutViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88CB6AF22C7DF24E00DB3BC9 /* WorkoutViewModel.swift */; };
+		88CB6AF52C7F163900DB3BC9 /* MealCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88CB6AF42C7F163900DB3BC9 /* MealCellView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		884122BE2C6B2BC000C42074 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		884122C02C6B2C5400C42074 /* Ext+Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ext+Font.swift"; sourceTree = "<group>"; };
+		884122C32C6B30E400C42074 /* PlusJakartaSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PlusJakartaSans-Bold.ttf"; sourceTree = "<group>"; };
+		884122C42C6B30E400C42074 /* PlusJakartaSans-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PlusJakartaSans-SemiBold.ttf"; sourceTree = "<group>"; };
+		884122C52C6B30E400C42074 /* PlusJakartaSans-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PlusJakartaSans-Medium.ttf"; sourceTree = "<group>"; };
+		884122C62C6B30E400C42074 /* PlusJakartaSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PlusJakartaSans-Regular.ttf"; sourceTree = "<group>"; };
+		884122CB2C6B314F00C42074 /* FItnessHealtcare-LBTA-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "FItnessHealtcare-LBTA-Info.plist"; sourceTree = SOURCE_ROOT; };
+		884122CD2C6B3ABC00C42074 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		884122CF2C6BA09200C42074 /* DailyActivitySectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyActivitySectionView.swift; sourceTree = "<group>"; };
+		884122D12C6BA0F700C42074 /* StepsSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepsSectionView.swift; sourceTree = "<group>"; };
+		884122D32C6BA13900C42074 /* WorkoutsSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutsSectionView.swift; sourceTree = "<group>"; };
+		884122D52C6C8B4000C42074 /* WorkoutsCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutsCellView.swift; sourceTree = "<group>"; };
+		884122D72C6C8FEC00C42074 /* FoodSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodSectionView.swift; sourceTree = "<group>"; };
+		884122D92C6C919600C42074 /* MealTipsSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealTipsSectionView.swift; sourceTree = "<group>"; };
+		884122DB2C6C9C6300C42074 /* MealHorizontalCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealHorizontalCellView.swift; sourceTree = "<group>"; };
+		884122DD2C6CE4FE00C42074 /* StatisticsCalendarCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsCalendarCellView.swift; sourceTree = "<group>"; };
+		884122DF2C6CEDBA00C42074 /* StatisticsFoodSectionVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsFoodSectionVIew.swift; sourceTree = "<group>"; };
+		884122E12C6DE0BB00C42074 /* StatisticsFitnessSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsFitnessSectionView.swift; sourceTree = "<group>"; };
+		884122E32C6F342300C42074 /* Ext+SafeAreaInsets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ext+SafeAreaInsets.swift"; sourceTree = "<group>"; };
+		884122E52C6F7B3E00C42074 /* Ext+View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ext+View.swift"; sourceTree = "<group>"; };
+		884122E82C6FA24200C42074 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		884122EB2C6FA7D300C42074 /* BackNavigationButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackNavigationButtonView.swift; sourceTree = "<group>"; };
+		884122ED2C6FADF200C42074 /* Ext+UINavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ext+UINavigation.swift"; sourceTree = "<group>"; };
+		884122EF2C6FAEB800C42074 /* ProfileCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCellView.swift; sourceTree = "<group>"; };
+		8861FDFF2C732A92004B3B36 /* WorkoutDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutDetailView.swift; sourceTree = "<group>"; };
+		8861FE012C7478FB004B3B36 /* PremiumPopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PremiumPopupView.swift; sourceTree = "<group>"; };
+		8861FE032C7479A5004B3B36 /* CongratulationPopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CongratulationPopupView.swift; sourceTree = "<group>"; };
+		8861FE062C7487EB004B3B36 /* MealDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDetailView.swift; sourceTree = "<group>"; };
+		8861FE082C74C33D004B3B36 /* WorkoutTrainersCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutTrainersCellView.swift; sourceTree = "<group>"; };
+		8861FE0A2C74CD88004B3B36 /* TrainerDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainerDetailView.swift; sourceTree = "<group>"; };
+		8861FE0C2C74D65D004B3B36 /* BookAppointmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookAppointmentView.swift; sourceTree = "<group>"; };
+		88C8DB462C69F2B300FC3F7F /* FItnessHealtcare_LBTA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FItnessHealtcare_LBTA.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		88C8DB492C69F2B300FC3F7F /* FItnessHealtcare_LBTAApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FItnessHealtcare_LBTAApp.swift; sourceTree = "<group>"; };
+		88C8DB4B2C69F2B300FC3F7F /* WorkoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutView.swift; sourceTree = "<group>"; };
+		88C8DB4D2C69F2B400FC3F7F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		88C8DB502C69F2B400FC3F7F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		88C8DB5D2C69F99E00FC3F7F /* MealView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealView.swift; sourceTree = "<group>"; };
+		88C8DB5F2C69F9AD00FC3F7F /* StatisticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsView.swift; sourceTree = "<group>"; };
+		88C8DB612C69F9BC00FC3F7F /* MyPlanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPlanView.swift; sourceTree = "<group>"; };
+		88C8DB6E2C6A01E500FC3F7F /* TabbarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarView.swift; sourceTree = "<group>"; };
+		88C8DB702C6A02F000FC3F7F /* SessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionManager.swift; sourceTree = "<group>"; };
+		88C8DB722C6A409200FC3F7F /* TabType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabType.swift; sourceTree = "<group>"; };
+		88C8DB752C6A54B200FC3F7F /* WorkoutHorizontalCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutHorizontalCellView.swift; sourceTree = "<group>"; };
+		88C8DB772C6A565800FC3F7F /* WorkoutCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutCellView.swift; sourceTree = "<group>"; };
+		88C8DB792C6A5E9D00FC3F7F /* WorkoutModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutModel.swift; sourceTree = "<group>"; };
+		88CB6AE92C75BEDF00DB3BC9 /* BoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxView.swift; sourceTree = "<group>"; };
+		88CB6AEC2C76227800DB3BC9 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		88CB6AEE2C76237700DB3BC9 /* CustomAppointmentButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAppointmentButton.swift; sourceTree = "<group>"; };
+		88CB6AF02C7CCE9B00DB3BC9 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		88CB6AF22C7DF24E00DB3BC9 /* WorkoutViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutViewModel.swift; sourceTree = "<group>"; };
+		88CB6AF42C7F163900DB3BC9 /* MealCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealCellView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		88C8DB432C69F2B300FC3F7F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		884122B82C6B2B5200C42074 /* OnboardingView */ = {
+			isa = PBXGroup;
+			children = (
+				884122BE2C6B2BC000C42074 /* OnboardingView.swift */,
+			);
+			path = OnboardingView;
+			sourceTree = "<group>";
+		};
+		884122B92C6B2B8100C42074 /* TabbarView */ = {
+			isa = PBXGroup;
+			children = (
+				88C8DB6E2C6A01E500FC3F7F /* TabbarView.swift */,
+			);
+			path = TabbarView;
+			sourceTree = "<group>";
+		};
+		884122BA2C6B2B8D00C42074 /* MealView */ = {
+			isa = PBXGroup;
+			children = (
+				8861FE052C7487D8004B3B36 /* MealDetailView */,
+				88C8DB5D2C69F99E00FC3F7F /* MealView.swift */,
+				884122DB2C6C9C6300C42074 /* MealHorizontalCellView.swift */,
+			);
+			path = MealView;
+			sourceTree = "<group>";
+		};
+		884122BB2C6B2B9C00C42074 /* StatisticsView */ = {
+			isa = PBXGroup;
+			children = (
+				88C8DB5F2C69F9AD00FC3F7F /* StatisticsView.swift */,
+				884122DD2C6CE4FE00C42074 /* StatisticsCalendarCellView.swift */,
+				884122DF2C6CEDBA00C42074 /* StatisticsFoodSectionVIew.swift */,
+				884122E12C6DE0BB00C42074 /* StatisticsFitnessSectionView.swift */,
+			);
+			path = StatisticsView;
+			sourceTree = "<group>";
+		};
+		884122BC2C6B2BA500C42074 /* MyPlanView */ = {
+			isa = PBXGroup;
+			children = (
+				88C8DB612C69F9BC00FC3F7F /* MyPlanView.swift */,
+			);
+			path = MyPlanView;
+			sourceTree = "<group>";
+		};
+		884122C22C6B309100C42074 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				884122C32C6B30E400C42074 /* PlusJakartaSans-Bold.ttf */,
+				884122C52C6B30E400C42074 /* PlusJakartaSans-Medium.ttf */,
+				884122C62C6B30E400C42074 /* PlusJakartaSans-Regular.ttf */,
+				884122C42C6B30E400C42074 /* PlusJakartaSans-SemiBold.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		884122CC2C6B3AA700C42074 /* WorkoutView */ = {
+			isa = PBXGroup;
+			children = (
+				8861FDFE2C732A80004B3B36 /* WorkoutDetailView */,
+				88C8DB4B2C69F2B300FC3F7F /* WorkoutView.swift */,
+				8861FE082C74C33D004B3B36 /* WorkoutTrainersCellView.swift */,
+				88C8DB752C6A54B200FC3F7F /* WorkoutHorizontalCellView.swift */,
+				88C8DB772C6A565800FC3F7F /* WorkoutCellView.swift */,
+				88CB6AF42C7F163900DB3BC9 /* MealCellView.swift */,
+			);
+			path = WorkoutView;
+			sourceTree = "<group>";
+		};
+		884122E72C6FA23700C42074 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				884122E82C6FA24200C42074 /* ProfileView.swift */,
+				884122EF2C6FAEB800C42074 /* ProfileCellView.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		884122EA2C6FA7A000C42074 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				8861FE012C7478FB004B3B36 /* PremiumPopupView.swift */,
+				8861FE032C7479A5004B3B36 /* CongratulationPopupView.swift */,
+				884122EB2C6FA7D300C42074 /* BackNavigationButtonView.swift */,
+				88CB6AE92C75BEDF00DB3BC9 /* BoxView.swift */,
+				88CB6AEE2C76237700DB3BC9 /* CustomAppointmentButton.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		8861FDFE2C732A80004B3B36 /* WorkoutDetailView */ = {
+			isa = PBXGroup;
+			children = (
+				8861FDFF2C732A92004B3B36 /* WorkoutDetailView.swift */,
+				8861FE0A2C74CD88004B3B36 /* TrainerDetailView.swift */,
+				8861FE0C2C74D65D004B3B36 /* BookAppointmentView.swift */,
+			);
+			path = WorkoutDetailView;
+			sourceTree = "<group>";
+		};
+		8861FE052C7487D8004B3B36 /* MealDetailView */ = {
+			isa = PBXGroup;
+			children = (
+				8861FE062C7487EB004B3B36 /* MealDetailView.swift */,
+			);
+			path = MealDetailView;
+			sourceTree = "<group>";
+		};
+		88C8DB3D2C69F2B200FC3F7F = {
+			isa = PBXGroup;
+			children = (
+				88C8DB482C69F2B300FC3F7F /* FItnessHealtcare_LBTA */,
+				88C8DB472C69F2B300FC3F7F /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		88C8DB472C69F2B300FC3F7F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				88C8DB462C69F2B300FC3F7F /* FItnessHealtcare_LBTA.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		88C8DB482C69F2B300FC3F7F /* FItnessHealtcare_LBTA */ = {
+			isa = PBXGroup;
+			children = (
+				884122CB2C6B314F00C42074 /* FItnessHealtcare-LBTA-Info.plist */,
+				88C8DB492C69F2B300FC3F7F /* FItnessHealtcare_LBTAApp.swift */,
+				88C8DB592C69F95C00FC3F7F /* Views */,
+				88C8DB5C2C69F97000FC3F7F /* ViewModels */,
+				88C8DB5A2C69F96300FC3F7F /* Models */,
+				88C8DB692C6A010600FC3F7F /* Managers */,
+				884122EA2C6FA7A000C42074 /* Components */,
+				88C8DB5B2C69F96800FC3F7F /* Utilities */,
+				88C8DB4D2C69F2B400FC3F7F /* Assets.xcassets */,
+				88C8DB4F2C69F2B400FC3F7F /* Preview Content */,
+			);
+			path = FItnessHealtcare_LBTA;
+			sourceTree = "<group>";
+		};
+		88C8DB4F2C69F2B400FC3F7F /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				88C8DB502C69F2B400FC3F7F /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		88C8DB592C69F95C00FC3F7F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				884122B82C6B2B5200C42074 /* OnboardingView */,
+				88CB6AEB2C76225D00DB3BC9 /* LoginView */,
+				884122B92C6B2B8100C42074 /* TabbarView */,
+				884122CC2C6B3AA700C42074 /* WorkoutView */,
+				88C8DB742C6A53AD00FC3F7F /* HomeView */,
+				884122BA2C6B2B8D00C42074 /* MealView */,
+				884122BB2C6B2B9C00C42074 /* StatisticsView */,
+				884122BC2C6B2BA500C42074 /* MyPlanView */,
+				884122E72C6FA23700C42074 /* Profile */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		88C8DB5A2C69F96300FC3F7F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				88C8DB722C6A409200FC3F7F /* TabType.swift */,
+				88C8DB792C6A5E9D00FC3F7F /* WorkoutModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		88C8DB5B2C69F96800FC3F7F /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				884122C22C6B309100C42074 /* Fonts */,
+				884122C02C6B2C5400C42074 /* Ext+Font.swift */,
+				884122E32C6F342300C42074 /* Ext+SafeAreaInsets.swift */,
+				884122E52C6F7B3E00C42074 /* Ext+View.swift */,
+				884122ED2C6FADF200C42074 /* Ext+UINavigation.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		88C8DB5C2C69F97000FC3F7F /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				88CB6AF02C7CCE9B00DB3BC9 /* LoginViewModel.swift */,
+				88CB6AF22C7DF24E00DB3BC9 /* WorkoutViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		88C8DB692C6A010600FC3F7F /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				88C8DB702C6A02F000FC3F7F /* SessionManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		88C8DB742C6A53AD00FC3F7F /* HomeView */ = {
+			isa = PBXGroup;
+			children = (
+				884122CD2C6B3ABC00C42074 /* HomeView.swift */,
+				884122D12C6BA0F700C42074 /* StepsSectionView.swift */,
+				884122CF2C6BA09200C42074 /* DailyActivitySectionView.swift */,
+				884122D32C6BA13900C42074 /* WorkoutsSectionView.swift */,
+				884122D52C6C8B4000C42074 /* WorkoutsCellView.swift */,
+				884122D72C6C8FEC00C42074 /* FoodSectionView.swift */,
+				884122D92C6C919600C42074 /* MealTipsSectionView.swift */,
+			);
+			path = HomeView;
+			sourceTree = "<group>";
+		};
+		88CB6AEB2C76225D00DB3BC9 /* LoginView */ = {
+			isa = PBXGroup;
+			children = (
+				88CB6AEC2C76227800DB3BC9 /* LoginView.swift */,
+			);
+			path = LoginView;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		88C8DB452C69F2B300FC3F7F /* FItnessHealtcare_LBTA */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 88C8DB542C69F2B400FC3F7F /* Build configuration list for PBXNativeTarget "FItnessHealtcare_LBTA" */;
+			buildPhases = (
+				88C8DB422C69F2B300FC3F7F /* Sources */,
+				88C8DB432C69F2B300FC3F7F /* Frameworks */,
+				88C8DB442C69F2B300FC3F7F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FItnessHealtcare_LBTA;
+			productName = FItnessHealtcare_LBTA;
+			productReference = 88C8DB462C69F2B300FC3F7F /* FItnessHealtcare_LBTA.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		88C8DB3E2C69F2B200FC3F7F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1540;
+				LastUpgradeCheck = 1540;
+				TargetAttributes = {
+					88C8DB452C69F2B300FC3F7F = {
+						CreatedOnToolsVersion = 15.4;
+					};
+				};
+			};
+			buildConfigurationList = 88C8DB412C69F2B200FC3F7F /* Build configuration list for PBXProject "FItnessHealtcare_LBTA" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 88C8DB3D2C69F2B200FC3F7F;
+			productRefGroup = 88C8DB472C69F2B300FC3F7F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				88C8DB452C69F2B300FC3F7F /* FItnessHealtcare_LBTA */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		88C8DB442C69F2B300FC3F7F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				884122C72C6B30E400C42074 /* PlusJakartaSans-Bold.ttf in Resources */,
+				884122CA2C6B30E400C42074 /* PlusJakartaSans-Regular.ttf in Resources */,
+				88C8DB512C69F2B400FC3F7F /* Preview Assets.xcassets in Resources */,
+				884122C92C6B30E400C42074 /* PlusJakartaSans-Medium.ttf in Resources */,
+				88C8DB4E2C69F2B400FC3F7F /* Assets.xcassets in Resources */,
+				884122C82C6B30E400C42074 /* PlusJakartaSans-SemiBold.ttf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		88C8DB422C69F2B300FC3F7F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				88C8DB7A2C6A5E9D00FC3F7F /* WorkoutModel.swift in Sources */,
+				884122E92C6FA24200C42074 /* ProfileView.swift in Sources */,
+				8861FE0D2C74D65D004B3B36 /* BookAppointmentView.swift in Sources */,
+				884122DE2C6CE4FE00C42074 /* StatisticsCalendarCellView.swift in Sources */,
+				884122CE2C6B3ABC00C42074 /* HomeView.swift in Sources */,
+				88CB6AF12C7CCE9B00DB3BC9 /* LoginViewModel.swift in Sources */,
+				88C8DB6F2C6A01E500FC3F7F /* TabbarView.swift in Sources */,
+				88CB6AEF2C76237700DB3BC9 /* CustomAppointmentButton.swift in Sources */,
+				8861FE002C732A92004B3B36 /* WorkoutDetailView.swift in Sources */,
+				8861FE022C7478FB004B3B36 /* PremiumPopupView.swift in Sources */,
+				884122EE2C6FADF200C42074 /* Ext+UINavigation.swift in Sources */,
+				884122F02C6FAEB800C42074 /* ProfileCellView.swift in Sources */,
+				884122E22C6DE0BB00C42074 /* StatisticsFitnessSectionView.swift in Sources */,
+				884122DC2C6C9C6300C42074 /* MealHorizontalCellView.swift in Sources */,
+				884122D42C6BA13900C42074 /* WorkoutsSectionView.swift in Sources */,
+				8861FE042C7479A5004B3B36 /* CongratulationPopupView.swift in Sources */,
+				884122E42C6F342300C42074 /* Ext+SafeAreaInsets.swift in Sources */,
+				884122E62C6F7B3E00C42074 /* Ext+View.swift in Sources */,
+				88CB6AEA2C75BEDF00DB3BC9 /* BoxView.swift in Sources */,
+				8861FE092C74C33D004B3B36 /* WorkoutTrainersCellView.swift in Sources */,
+				88C8DB602C69F9AD00FC3F7F /* StatisticsView.swift in Sources */,
+				884122D22C6BA0F700C42074 /* StepsSectionView.swift in Sources */,
+				88C8DB4C2C69F2B300FC3F7F /* WorkoutView.swift in Sources */,
+				88CB6AF52C7F163900DB3BC9 /* MealCellView.swift in Sources */,
+				884122EC2C6FA7D300C42074 /* BackNavigationButtonView.swift in Sources */,
+				884122D02C6BA09200C42074 /* DailyActivitySectionView.swift in Sources */,
+				884122D62C6C8B4000C42074 /* WorkoutsCellView.swift in Sources */,
+				88C8DB762C6A54B200FC3F7F /* WorkoutHorizontalCellView.swift in Sources */,
+				88C8DB4A2C69F2B300FC3F7F /* FItnessHealtcare_LBTAApp.swift in Sources */,
+				88CB6AF32C7DF24E00DB3BC9 /* WorkoutViewModel.swift in Sources */,
+				88C8DB5E2C69F99E00FC3F7F /* MealView.swift in Sources */,
+				88C8DB712C6A02F000FC3F7F /* SessionManager.swift in Sources */,
+				88C8DB622C69F9BC00FC3F7F /* MyPlanView.swift in Sources */,
+				884122D82C6C8FEC00C42074 /* FoodSectionView.swift in Sources */,
+				88C8DB782C6A565800FC3F7F /* WorkoutCellView.swift in Sources */,
+				8861FE0B2C74CD88004B3B36 /* TrainerDetailView.swift in Sources */,
+				8861FE072C7487EB004B3B36 /* MealDetailView.swift in Sources */,
+				884122BF2C6B2BC000C42074 /* OnboardingView.swift in Sources */,
+				884122E02C6CEDBA00C42074 /* StatisticsFoodSectionVIew.swift in Sources */,
+				884122C12C6B2C5400C42074 /* Ext+Font.swift in Sources */,
+				88CB6AED2C76227800DB3BC9 /* LoginView.swift in Sources */,
+				88C8DB732C6A409200FC3F7F /* TabType.swift in Sources */,
+				884122DA2C6C919600C42074 /* MealTipsSectionView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		88C8DB522C69F2B400FC3F7F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		88C8DB532C69F2B400FC3F7F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		88C8DB552C69F2B400FC3F7F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"FItnessHealtcare_LBTA/Preview Content\"";
+				DEVELOPMENT_TEAM = R4XB56HC9M;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "FItnessHealtcare-LBTA-Info.plist";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "iMakca.FItnessHealtcare-LBTA";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		88C8DB562C69F2B400FC3F7F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"FItnessHealtcare_LBTA/Preview Content\"";
+				DEVELOPMENT_TEAM = R4XB56HC9M;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "FItnessHealtcare-LBTA-Info.plist";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "iMakca.FItnessHealtcare-LBTA";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		88C8DB412C69F2B200FC3F7F /* Build configuration list for PBXProject "FItnessHealtcare_LBTA" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				88C8DB522C69F2B400FC3F7F /* Debug */,
+				88C8DB532C69F2B400FC3F7F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		88C8DB542C69F2B400FC3F7F /* Build configuration list for PBXNativeTarget "FItnessHealtcare_LBTA" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				88C8DB552C69F2B400FC3F7F /* Debug */,
+				88C8DB562C69F2B400FC3F7F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 88C8DB3E2C69F2B200FC3F7F /* Project object */;
+}
