@@ -49,8 +49,8 @@ private extension WorkoutView {
                     ForEach(CategoryType.allCases) { item in
                         WorkoutHorizontalCellView(
                             workoutSelected: $vm.workoutSelected,
-                            selected: item,
-                            selectedTool: $vm.tool
+                            selectedTool: $vm.tool,
+                            selected: item
                         )
                     }
                 }
@@ -64,7 +64,7 @@ private extension WorkoutView {
                 .padding(.horizontal, 10)
                 .padding(.bottom, 10)
             
-            ToolsTypeView(isSearchText: $isSearchText, vm: vm)
+            WorkoutToolsTypeView(isSearchText: $isSearchText, vm: vm)
         }
         .foregroundStyle(.tint)
         .background(Color.raisinBlack.opacity(0.5))

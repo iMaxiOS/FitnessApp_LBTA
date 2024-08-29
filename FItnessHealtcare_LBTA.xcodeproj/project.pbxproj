@@ -31,6 +31,7 @@
 		884122EE2C6FADF200C42074 /* Ext+UINavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884122ED2C6FADF200C42074 /* Ext+UINavigation.swift */; };
 		884122F02C6FAEB800C42074 /* ProfileCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884122EF2C6FAEB800C42074 /* ProfileCellView.swift */; };
 		885E61B92C806E1A00CB93E2 /* ToolsTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 885E61B82C806E1A00CB93E2 /* ToolsTypeView.swift */; };
+		885E61BB2C80706E00CB93E2 /* MealViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 885E61BA2C80706E00CB93E2 /* MealViewModel.swift */; };
 		8861FE002C732A92004B3B36 /* WorkoutDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8861FDFF2C732A92004B3B36 /* WorkoutDetailView.swift */; };
 		8861FE022C7478FB004B3B36 /* PremiumPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8861FE012C7478FB004B3B36 /* PremiumPopupView.swift */; };
 		8861FE042C7479A5004B3B36 /* CongratulationPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8861FE032C7479A5004B3B36 /* CongratulationPopupView.swift */; };
@@ -85,6 +86,7 @@
 		884122ED2C6FADF200C42074 /* Ext+UINavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ext+UINavigation.swift"; sourceTree = "<group>"; };
 		884122EF2C6FAEB800C42074 /* ProfileCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCellView.swift; sourceTree = "<group>"; };
 		885E61B82C806E1A00CB93E2 /* ToolsTypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolsTypeView.swift; sourceTree = "<group>"; };
+		885E61BA2C80706E00CB93E2 /* MealViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealViewModel.swift; sourceTree = "<group>"; };
 		8861FDFF2C732A92004B3B36 /* WorkoutDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutDetailView.swift; sourceTree = "<group>"; };
 		8861FE012C7478FB004B3B36 /* PremiumPopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PremiumPopupView.swift; sourceTree = "<group>"; };
 		8861FE032C7479A5004B3B36 /* CongratulationPopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CongratulationPopupView.swift; sourceTree = "<group>"; };
@@ -147,6 +149,7 @@
 				8861FE052C7487D8004B3B36 /* MealDetailView */,
 				88C8DB5D2C69F99E00FC3F7F /* MealView.swift */,
 				884122DB2C6C9C6300C42074 /* MealHorizontalCellView.swift */,
+				88CB6AF42C7F163900DB3BC9 /* MealCellView.swift */,
 			);
 			path = MealView;
 			sourceTree = "<group>";
@@ -189,7 +192,6 @@
 				8861FE082C74C33D004B3B36 /* WorkoutTrainersCellView.swift */,
 				88C8DB752C6A54B200FC3F7F /* WorkoutHorizontalCellView.swift */,
 				88C8DB772C6A565800FC3F7F /* WorkoutCellView.swift */,
-				88CB6AF42C7F163900DB3BC9 /* MealCellView.swift */,
 			);
 			path = WorkoutView;
 			sourceTree = "<group>";
@@ -317,6 +319,7 @@
 			children = (
 				88CB6AF02C7CCE9B00DB3BC9 /* LoginViewModel.swift */,
 				88CB6AF22C7DF24E00DB3BC9 /* WorkoutViewModel.swift */,
+				885E61BA2C80706E00CB93E2 /* MealViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -466,6 +469,7 @@
 				884122BF2C6B2BC000C42074 /* OnboardingView.swift in Sources */,
 				884122E02C6CEDBA00C42074 /* StatisticsFoodSectionVIew.swift in Sources */,
 				884122C12C6B2C5400C42074 /* Ext+Font.swift in Sources */,
+				885E61BB2C80706E00CB93E2 /* MealViewModel.swift in Sources */,
 				88CB6AED2C76227800DB3BC9 /* LoginView.swift in Sources */,
 				88C8DB732C6A409200FC3F7F /* TabType.swift in Sources */,
 				884122DA2C6C919600C42074 /* MealTipsSectionView.swift in Sources */,

@@ -9,8 +9,8 @@ import SwiftUI
 
 struct WorkoutHorizontalCellView: View {
     @Binding var workoutSelected: CategoryType
-    var selected: CategoryType
     @Binding var selectedTool: ToolsType
+    var selected: CategoryType
 
     var body: some View {
         RoundedRectangle(cornerRadius: 8)
@@ -33,7 +33,7 @@ struct WorkoutHorizontalCellView: View {
 #Preview {
     WorkoutHorizontalCellView(
         workoutSelected: .constant(.workouts),
-        selected: .workouts,
-        selectedTool: .constant(.defaulting)
+        selectedTool: .constant(.defaulting),
+        selected: .workouts
     )
 }

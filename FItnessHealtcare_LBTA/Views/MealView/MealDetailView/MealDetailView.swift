@@ -326,6 +326,6 @@ private extension MealDetailView {
 
 
 #Preview {
-    MealDetailView(meal: MealModel.mealMock[2])
+    MealDetailView(meal: (MealModel.mealCategoryData[.breakfast]?.first)!)
         .environmentObject(SessionManager())
 }

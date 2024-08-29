@@ -17,7 +17,6 @@ struct WorkoutCellView: View {
             .overlay(alignment: .topTrailing) {
                 Button {
                     workout.toggleFavorite()
-                    print(workout)
                 } label: {
                     RoundedRectangle(cornerRadius: 15)
                         .fill(.black.opacity(0.6))

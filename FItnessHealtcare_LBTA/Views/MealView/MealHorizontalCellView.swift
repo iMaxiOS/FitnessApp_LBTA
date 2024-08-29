@@ -8,8 +8,9 @@
 import SwiftUI
 
 struct MealHorizontalCellView: View {
-    @Binding var mealSelected: MealTopSection
-    var selected: MealTopSection
+    @Binding var mealSelected: MealCategoryType
+    @Binding var tool: ToolsType
+    var selected: MealCategoryType
     
     var body: some View {
         RoundedRectangle(cornerRadius: 8)
@@ -23,6 +24,7 @@ struct MealHorizontalCellView: View {
             .onTapGesture {
                 withAnimation(.snappy) {
                     mealSelected = selected
+                    tool = .defaulting
                 }
             }
     }

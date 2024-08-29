@@ -17,7 +17,6 @@ struct MealCellView: View {
             .overlay(alignment: .topTrailing) {
                 Button {
                     meal.toggleFavorite()
-                    print(meal)
                 } label: {
                     RoundedRectangle(cornerRadius: 15)
                         .fill(.black.opacity(0.6))
@@ -63,5 +62,5 @@ struct MealCellView: View {
 }
 
 #Preview {
-    MealCellView(meal: .constant(MealModel.mealMock.first!))
+    MealCellView(meal: .constant(MealModel.mealCategoryData[.breakfast]![2]))
 }

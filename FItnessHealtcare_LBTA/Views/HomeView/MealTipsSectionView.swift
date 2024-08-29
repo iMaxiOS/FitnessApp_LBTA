@@ -36,7 +36,7 @@ struct MealTipsSectionView: View {
             .padding([.bottom, .top], 10)
             
             LazyVGrid(columns: columns, spacing: 10) {
-                ForEach(MealModel.mealMock[...1]) { meal in
+                ForEach(MealModel.mealCategoryData[.breakfast]?[...1] ?? []) { meal in
                     MealCellView(meal: .constant(meal))
                 }
             }

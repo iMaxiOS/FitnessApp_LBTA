@@ -7,16 +7,14 @@
 
 import SwiftUI
 
-enum MealTopSection: String, CaseIterable {
-    case breakfast, brunch, lunch, snake
-}
-
 struct MealView: View {
     @EnvironmentObject var session: SessionManager
     
     @Environment(\.safeAreaInsets) private var safeAreaInsets
     
-    @State private var mealSelected: MealTopSection = .breakfast
+    @StateObject private var vm = MealViewModel()
+    
+    @State private var isSearchText: Bool = false
     
     private let columns = [
         GridItem(.flexible(), spacing: 10),
@@ -45,9 +43,10 @@ private extension MealView {
             
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: 5) {
-                    ForEach(MealTopSection.allCases, id: \.rawValue) { item in
+                    ForEach(MealCategoryType.allCases, id: \.rawValue) { item in
                         MealHorizontalCellView(
-                            mealSelected: $mealSelected,
+                            mealSelected: $vm.mealSelected,
+                            tool: $vm.tool,
                             selected: item
                         )
                     }
@@ -62,38 +61,7 @@ private extension MealView {
                 .padding(.horizontal, 10)
                 .padding(.bottom, 10)
             
-            HStack(spacing: 20) {
-                Button { } label: {
-                    HStack(spacing: 4) {
-                        Image(systemName: "camera.filters")
-                        Text("Filters")
-                    }
-                }
-                .buttonStyle(.plain)
-                
-                RoundedRectangle(cornerRadius: 0.5)
-                    .frame(width: 1, height: 30)
-                
-                Button { } label: {
-                    HStack(spacing: 4) {
-                        Image(systemName: "arrow.up.arrow.down")
-                        Text("Sorting")
-                    }
-                }
-                .buttonStyle(.plain)
-                
-                RoundedRectangle(cornerRadius: 0.5)
-                    .frame(width: 1, height: 30)
-                
-                Button { } label: {
-                    HStack(spacing: 4) {
-                        Image(systemName: "magnifyingglass")
-                        Text("Search")
-                    }
-                }
-                .buttonStyle(.plain)
-            }
-            .padding(.bottom, 25)
+            MealToolsTypeView(isSearchText: $isSearchText, vm: vm)
         }
         .foregroundStyle(.tint)
         .background(Color.raisinBlack.opacity(0.5))
@@ -104,32 +72,20 @@ private extension MealView {
     var workoutScrollSection: some View {
         ScrollView(.vertical, showsIndicators: false) {
             LazyVGrid(columns: columns, alignment: .center, spacing: 10) {
-                ForEach(choosenMeal()) { item in
-                    MealCellView(meal: .constant(item))
-                        .onTapGesture {
-                            session.path.append(.mealDetail(item))
-                        }
+                ForEach(vm.filteredAndSortedModels) { item in
+                    MealCellView(meal: Binding(
+                        get: { item },
+                        set: { updatedModel in
+                            if let index = vm.mockData[vm.mealSelected]?.firstIndex(where: { $0.id == item.id }) {
+                                vm.mockData[vm.mealSelected]?[index] = updatedModel
+                            }
+                        }))
                 }
             }
             .padding(.bottom, 90)
             .padding(.top, 250)
         }
         .padding(.horizontal, 10)
-    }
-}
-
-private extension MealView {
-    func choosenMeal() -> [MealModel] {
-        switch mealSelected {
-        case .breakfast:
-            return MealModel.mealMock
-        case .brunch:
-            return MealModel.mealMock.reversed()
-        case .lunch:
-            return MealModel.mealMock.dropLast().reversed()
-        case .snake:
-            return MealModel.mealMock.dropLast(5)
-        }
     }
 }
 
