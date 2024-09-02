@@ -10,6 +10,8 @@ import SwiftUI
 struct DailyActivitySectionView: View {
     @EnvironmentObject var session: SessionManager
     
+    var data: CalendarModel
+    
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
             HStack {
@@ -34,7 +36,7 @@ struct DailyActivitySectionView: View {
                         Text("Steps")
                             .foregroundStyle(.dimGray)
                             .font(Font.Jakarta.medium(size: 13))
-                        Text("11 000")
+                        Text(data.data.steps)
                             .font(Font.Jakarta.bold(size: 25))
                             .foregroundStyle(.lime) +
                         Text("/  16 000")
@@ -46,7 +48,7 @@ struct DailyActivitySectionView: View {
                         Text("Calories")
                             .foregroundStyle(.dimGray)
                             .font(Font.Jakarta.medium(size: 13))
-                        Text("400")
+                        Text(data.data.calories)
                             .font(Font.Jakarta.bold(size: 25))
                             .foregroundStyle(.lime) +
                         Text("/  680 Cal")
@@ -58,7 +60,7 @@ struct DailyActivitySectionView: View {
                         Text("Water")
                             .foregroundStyle(.dimGray)
                             .font(Font.Jakarta.medium(size: 13))
-                        Text("1,8")
+                        Text(data.data.water)
                             .font(Font.Jakarta.bold(size: 25))
                             .foregroundStyle(.lime) +
                         Text("/  2,5 L")
@@ -69,7 +71,7 @@ struct DailyActivitySectionView: View {
                 
                 Spacer()
                 
-                FitnessCircleView(frame: 100)
+                FitnessCircleView(frame: 100, data: data)
             }
         }
         .foregroundStyle(.tint)
@@ -81,33 +83,44 @@ struct DailyActivitySectionView: View {
 }
 
 struct FitnessCircleView: View {
-    
-    var array = [1, 2, 3]
+    @State private var animation: Bool = false
     
     var frame: CGFloat
+    var data: CalendarModel
     
     var body: some View {
         ZStack {
-            ForEach(Array(array.enumerated()), id: \.element) { index, element in
+            ForEach(data.data.progress[..<3].indices, id: \.self) { index in
                 ZStack {
                     Circle()
                         .stroke(Color.dimGray, lineWidth: 13)
-                    
                     Circle()
-                        .trim(from: 0.06, to: 0.87)
+                        .trim(from: 0, to: animation ? data.data.progress[index] / 100 : 0)
                         .stroke(
-                            AngularGradient(gradient: Gradient(colors: [.clear, .clear, .lime, .lime]), center: .center, startAngle: .zero, endAngle: .degrees(360)),
-                            style: StrokeStyle(lineWidth: 13, lineCap: .round)
-                        )
+                            AngularGradient(
+                                gradient: Gradient(
+                                    colors: [.lime, .yellow, .red, .lime]
+                                ),
+                                center: .center,
+                                endAngle: .degrees(360)
+                            ), style: StrokeStyle(lineWidth: 14, lineCap: .round, lineJoin: .round))
                 }
-                .frame(width: frame - CGFloat(index * 30), height: frame - CGFloat(index * 30))
-                .rotationEffect(.degrees(-90))
+                .padding(CGFloat(index) * 16)
+            }
+            .frame(width: frame, height: frame)
+            .rotationEffect(.degrees(-90))
+        }
+        .onAppear {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
+                withAnimation(.interactiveSpring(response: 1, dampingFraction: 1, blendDuration: 1)) {
+                    animation = true
+                }
             }
         }
     }
 }
 
 #Preview {
-    DailyActivitySectionView()
+    DailyActivitySectionView(data: CalendarModel.calendarMock[0])
         .environmentObject(SessionManager())
 }

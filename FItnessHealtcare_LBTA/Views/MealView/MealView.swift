@@ -73,13 +73,18 @@ private extension MealView {
         ScrollView(.vertical, showsIndicators: false) {
             LazyVGrid(columns: columns, alignment: .center, spacing: 10) {
                 ForEach(vm.filteredAndSortedModels) { item in
-                    MealCellView(meal: Binding(
-                        get: { item },
-                        set: { updatedModel in
-                            if let index = vm.mockData[vm.mealSelected]?.firstIndex(where: { $0.id == item.id }) {
-                                vm.mockData[vm.mealSelected]?[index] = updatedModel
-                            }
-                        }))
+                    MealCellView(
+                        meal: Binding(
+                            get: { item },
+                            set: { updatedModel in
+                                if let index = vm.mockData[vm.mealSelected]?.firstIndex(where: { $0.id == item.id }) {
+                                    vm.mockData[vm.mealSelected]?[index] = updatedModel
+                                }
+                            })
+                    )
+                    .onTapGesture {
+                        session.path.append(.mealDetail(item))
+                    }
                 }
             }
             .padding(.bottom, 90)

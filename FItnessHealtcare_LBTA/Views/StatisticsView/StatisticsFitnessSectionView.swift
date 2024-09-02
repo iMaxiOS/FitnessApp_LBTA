@@ -10,9 +10,11 @@ import SwiftUI
 struct StatisticsFitnessSectionView: View {
     @EnvironmentObject var session: SessionManager
     
+    var data: CalendarModel
+    
     var body: some View {
         VStack(spacing: 25) {
-            FitnessCircleView(frame: 120)
+            FitnessCircleView(frame: 120, data: data)
             activitySection
             chartSection
         }
@@ -28,9 +30,9 @@ private extension StatisticsFitnessSectionView {
     var activitySection: some View {
         VStack(spacing: 16) {
             HStack(spacing: 30) {
-                ForEach(FitnessActivityData.fitnessActivityMock) { item in
-                    FitnessCellView(item: item)
-                }
+                FitnessCellView(title: "Steps", image: "shoeprints.fill", activityFrom: data.data.steps, activityTo: "/   16 000")
+                FitnessCellView(title: "Calories", image: "flame.fill", activityFrom: data.data.calories, activityTo: "/  680 Cal")
+                FitnessCellView(title: "Water", image: "drop.fill", activityFrom: data.data.water, activityTo: "/  2,5")
             }
             
             VStack(spacing: 5) {
@@ -92,22 +94,25 @@ private extension StatisticsFitnessSectionView {
 
 
 struct FitnessCellView: View {
-    let item: FitnessActivityData
+    let title: String
+    let image: String
+    let activityFrom: String
+    let activityTo: String
     
     var body: some View {
         VStack(spacing: 0) {
-            Text(item.title)
+            Text(title)
                 .font(Font.Jakarta.regular(size: 13))
                 .foregroundStyle(.dimGray)
             
             HStack(spacing: 5) {
-                Image(systemName: item.image)
+                Image(systemName: image)
                     .foregroundStyle(.tint)
                 
                 VStack(alignment: .leading) {
-                    Text(item.activityFrom)
+                    Text(activityFrom)
                         .font(Font.Jakarta.bold(size: 17))
-                    Text(item.activityTo)
+                    Text(activityTo)
                         .font(Font.Jakarta.regular(size: 12))
                 }
             }

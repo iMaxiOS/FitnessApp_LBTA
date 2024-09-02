@@ -20,7 +20,7 @@ struct HomeView: View {
             ScrollView(showsIndicators: false) {
                 VStack(spacing: 5) {
                     StepsSectionView()
-                    DailyActivitySectionView()
+                    DailyActivitySectionView(data: CalendarModel.calendarMock[5])
                     WorkoutsSectionView()
                     FoodSectionView()
                     MealTipsSectionView()

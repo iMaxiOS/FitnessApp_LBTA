@@ -20,7 +20,7 @@ struct StatisticsView: View {
         
             ScrollView(showsIndicators: false) {
                 VStack(spacing: 5) {
-                    StatisticsFitnessSectionView()
+                    StatisticsFitnessSectionView(data: calendarSelected)
                     WorkoutsSectionView()
                     StatisticsFoodSectionVIew()
                 }

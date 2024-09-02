@@ -19,13 +19,15 @@ struct StatisticsCalendarCellView: View {
                 VStack(spacing: 4) {
                     Text(selected.day)
                         .font(Font.Jakarta.regular(size: 10))
-                    Text(selected.numner)
+                    Text(selected.number)
                 }
                 .foregroundStyle(calendarSelected.id != selected.id ? Color.white : Color.raisinBlack)
                 .font(Font.Jakarta.medium(size: 15))
             }
             .onTapGesture {
-                calendarSelected = selected
+                withAnimation(.interactiveSpring(response: 1, dampingFraction: 1, blendDuration: 1)) {
+                    calendarSelected = selected
+                }
             }
     }
 }
