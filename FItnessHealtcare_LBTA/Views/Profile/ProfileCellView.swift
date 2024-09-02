@@ -25,7 +25,7 @@ enum ItemPosition: CaseIterable {
     
     var image: String {
         switch self {
-        case .journal: "square.and.pencil"
+        case .journal: "externaldrive.fill"
         case .edit: "square.and.pencil"
         case .payment: "handbag"
         case .settings: "gearshape"

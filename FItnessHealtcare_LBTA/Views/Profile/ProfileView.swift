@@ -14,7 +14,7 @@ struct ProfileView: View {
     
     private let firstSection: [ItemPosition] = [.journal, .edit, .payment, .settings]
     private let secondSection: [ItemPosition] = [.termsAndCond, .feedback, .support]
-    private let thridSection: [ItemPosition] = [.signout]
+    private let thirdSection: [ItemPosition] = [.signout]
     
     var body: some View {
         ZStack {
@@ -101,7 +101,7 @@ private extension ProfileView {
                 }
                 
                 BoxView {
-                    ForEach(thridSection, id: \.title) { item in
+                    ForEach(thirdSection, id: \.title) { item in
                         ProfileCellView(item: item) {
                             session.logoutSession()
                         }

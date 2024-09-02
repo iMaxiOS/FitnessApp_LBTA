@@ -12,14 +12,6 @@ struct MyPlanView: View {
     
     @Environment(\.safeAreaInsets) private var safeAreaInsets
     
-    var revenueGradient: LinearGradient {
-        LinearGradient(gradient: Gradient(colors: [.yellow, .purple]), startPoint: .trailing, endPoint: .leading)
-    }
-    
-    var visitsGradient: LinearGradient {
-        LinearGradient(gradient: Gradient(colors: [.pink, .blue]), startPoint: .trailing, endPoint: .leading)
-    }
-    
     var body: some View {
         ZStack {
             Color.BG
@@ -154,7 +146,6 @@ private extension MyPlanView {
                             .chartXAxis(.hidden)
                         }
                     }
-
                 }
                 .foregroundStyle(.davyGray)
                 .font(Font.Jakarta.bold(size: 22))
