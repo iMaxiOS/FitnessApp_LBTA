@@ -8,14 +8,25 @@
 import SwiftUI
 
 struct LoginView: View {
-    @EnvironmentObject var session: SessionManager
-    
     enum RouterAccount {
         case onboarding, login, create, forget
     }
     
+    enum FocusedFieldLogin {
+        case email, password
+    }
+    
+    enum FocusedFieldCreateAuth {
+        case email, fullname, password, repeatPassword
+    }
+    
+    @EnvironmentObject var session: SessionManager
+    
     @State private var isRemember: Bool = false
     @State private var router: RouterAccount = .onboarding
+    
+    @FocusState private var focusedFieldForLogin: FocusedFieldLogin?
+    @FocusState private var focusedFieldForCreate: FocusedFieldCreateAuth?
     
     @StateObject private var vm = LoginViewModel()
     
@@ -48,7 +59,7 @@ struct LoginView: View {
                 .opacity(router != .login ? 0 : 1)
         }
         .overlay {
-            if session.isShowWorkoutView {
+            if session.userSession != nil {
                 TabbarView()
             }
         }
@@ -119,6 +130,7 @@ private extension LoginView {
         Button {
             withAnimation(.spring) {
                 router = .create
+                hideKeyboard()
             }
         } label: {
             Text("Sign up")
@@ -145,6 +157,12 @@ private extension LoginView {
                 VStack(spacing: 0) {
                     TextField("Your Email", text: $vm.email)
                         .foregroundStyle(.raisinBlack)
+                        .keyboardType(.emailAddress)
+                        .submitLabel(.next)
+                        .autocapitalization(.words)
+                        .disableAutocorrection(true)
+                        .textInputAutocapitalization(.words)
+                        .focused($focusedFieldForLogin, equals: .email)
                         .frame(height: 45)
                     
                     RoundedRectangle(cornerRadius: 1)
@@ -153,9 +171,12 @@ private extension LoginView {
                 }
                 
                 VStack(spacing: 0) {
-                    TextField("Password", text: $vm.password)
-                        .foregroundStyle(.raisinBlack)
+                    SecureField("Password", text: $vm.password)
                         .frame(height: 45)
+                        .foregroundStyle(.raisinBlack)
+                        .submitLabel(.done)
+                        .focused($focusedFieldForLogin, equals: .password)
+                    
                     RoundedRectangle(cornerRadius: 1)
                         .fill(.raisinBlack.opacity(0.5))
                         .frame(height: 1)
@@ -180,8 +201,8 @@ private extension LoginView {
                 .font(Font.Jakarta.medium(size: 16))
                 
                 Button {
-                    withAnimation(.spring) {
-                        session.isShowWorkoutView.toggle()
+                    Task {
+                        try await session.signIn(email: vm.email, password: vm.password)
                     }
                 } label: {
                     Capsule()
@@ -195,12 +216,19 @@ private extension LoginView {
                         }
                 }
                 .padding(.top)
-                .disabled(vm.textFieldNotEmpty())
+                .disabled(vm.loginTextFieldNotEmpty())
             }
         }
         .padding(.horizontal, 40)
-        .padding(.bottom, 50)
+        .padding(.bottom, 30)
         .transition(.move(edge: .trailing))
+        .onSubmit {
+            switch focusedFieldForLogin {
+            case .email: focusedFieldForLogin = .password
+            case .password: focusedFieldForLogin = nil
+            case .none: break
+            }
+        }
     }
     
     var createView: some View {
@@ -219,7 +247,13 @@ private extension LoginView {
                 VStack(spacing: 0) {
                     TextField("Your Email", text: $vm.email)
                         .foregroundStyle(.raisinBlack)
+                        .keyboardType(.emailAddress)
+                        .submitLabel(.next)
+                        .autocapitalization(.words)
+                        .disableAutocorrection(true)
+                        .textInputAutocapitalization(.words)
                         .frame(height: 45)
+                        .focused($focusedFieldForCreate, equals: .email)
                     
                     RoundedRectangle(cornerRadius: 1)
                         .fill(.raisinBlack.opacity(0.5))
@@ -227,16 +261,46 @@ private extension LoginView {
                 }
                 
                 VStack(spacing: 0) {
-                    TextField("Password", text: $vm.password)
+                    TextField("Full Name", text: $vm.fullname)
                         .foregroundStyle(.raisinBlack)
                         .frame(height: 45)
+                        .focused($focusedFieldForCreate, equals: .fullname)
+                    
+                    RoundedRectangle(cornerRadius: 1)
+                        .fill(.raisinBlack.opacity(0.5))
+                        .frame(height: 1)
+                }
+                
+                VStack(spacing: 0) {
+                    SecureField("Password", text: $vm.password)
+                        .foregroundStyle(.raisinBlack)
+                        .frame(height: 45)
+                        .focused($focusedFieldForCreate, equals: .password)
+                    
+                    RoundedRectangle(cornerRadius: 1)
+                        .fill(.raisinBlack.opacity(0.5))
+                        .frame(height: 1)
+                }
+                
+                VStack(spacing: 0) {
+                    SecureField("Repeat password", text: $vm.repeatPassword)
+                        .foregroundStyle(.raisinBlack)
+                        .frame(height: 45)
+                        .focused($focusedFieldForCreate, equals: .repeatPassword)
+                    
                     RoundedRectangle(cornerRadius: 1)
                         .fill(.raisinBlack.opacity(0.5))
                         .frame(height: 1)
                 }
                 
                 Button {
-                    session.isShowWorkoutView.toggle()
+                    Task {
+                        try await session.createUser(
+                            email: vm.email,
+                            fullname: vm.fullname,
+                            password: vm.password
+                        )
+                    }
                 } label: {
                     Capsule()
                         .fill(.lime)
@@ -249,7 +313,7 @@ private extension LoginView {
                         }
                 }
                 .padding(.top)
-                .disabled(vm.textFieldNotEmpty())
+                .disabled(vm.createUserTextFieldNotEmpty())
                 
                 Button { } label: {
                     Capsule()
@@ -279,6 +343,15 @@ private extension LoginView {
         .padding(.horizontal, 40)
         .padding(.bottom, 50)
         .transition(.move(edge: .trailing))
+        .onSubmit {
+            switch focusedFieldForCreate {
+            case .email: focusedFieldForCreate = .fullname
+            case .fullname: focusedFieldForCreate = .password
+            case .password: focusedFieldForCreate = .repeatPassword
+            case .repeatPassword: focusedFieldForCreate = nil
+            case .none: break
+            }
+        }
     }
 }
 

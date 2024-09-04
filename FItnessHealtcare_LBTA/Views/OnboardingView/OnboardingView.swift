@@ -19,8 +19,13 @@ struct OnboardingView: View {
             if !isStart {
                 onboardingView
             } else {
-                LoginView()
-                    .environmentObject(session)
+                if session.userSession != nil {
+                    TabbarView()
+                        .environmentObject(session)
+                } else {
+                    LoginView()
+                        .environmentObject(session)
+                }
             }
         }
         .onAppear {

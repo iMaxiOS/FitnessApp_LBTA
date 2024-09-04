@@ -48,22 +48,25 @@ private extension ProfileView {
                         .resizable()
                         .frame(width: 70, height: 70)
                         .clipShape(Circle())
+                        .onTapGesture {
+                            
+                        }
                 }
                 .overlay(alignment: .bottomTrailing) {
                     Circle()
                         .fill(.lime)
                         .frame(width: 22, height: 22)
-                        .offset(x: -10)
+                        .offset(x: -5)
                 }
                 
                 VStack(alignment: .leading, spacing: -2) {
-                    Text("Lester Desher")
+                    Text(session.currentUser?.fullname ?? "")
                         .font(Font.Jakarta.bold(size: 18))
                         .padding(.bottom, 6)
                     Text("Pro Member")
                         .font(Font.Jakarta.regular(size: 13))
                         .foregroundStyle(.dimGray)
-                    Text("Until 13 Jun 2023")
+                    Text(session.userSession?.metadata.creationDate?.formatted(date: .abbreviated, time: .shortened) ?? "")
                         .font(Font.Jakarta.regular(size: 15))
                         .foregroundStyle(.lime)
                     
@@ -103,7 +106,7 @@ private extension ProfileView {
                 BoxView {
                     ForEach(thirdSection, id: \.title) { item in
                         ProfileCellView(item: item) {
-                            session.logoutSession()
+                            session.signOut()
                         }
                     }
                     .padding(.bottom, 10)

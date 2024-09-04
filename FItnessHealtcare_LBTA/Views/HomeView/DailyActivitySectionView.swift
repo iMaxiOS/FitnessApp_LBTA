@@ -38,7 +38,9 @@ struct DailyActivitySectionView: View {
                             .font(Font.Jakarta.medium(size: 13))
                         Text(data.data.steps)
                             .font(Font.Jakarta.bold(size: 25))
-                            .foregroundStyle(.lime) +
+                            .foregroundStyle(.lime)
+                            .contentTransition(.numericText(value: Double(data.data.steps) ?? 0))
+                        
                         Text("/  16 000")
                             .font(Font.Jakarta.regular(size: 13))
                             .foregroundStyle(.lime)

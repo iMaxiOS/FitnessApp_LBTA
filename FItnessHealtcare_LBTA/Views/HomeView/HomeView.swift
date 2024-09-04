@@ -56,7 +56,7 @@ private extension HomeView {
             }
             
             VStack(alignment: .leading, spacing: 0) {
-                Text("Hello Maxim!")
+                Text("Hello \(session.currentUser?.fullname ?? "")!")
                     .font(Font.Jakarta.semiBold(size: 16))
                 Text("Let`s start your day")
                     .font(Font.Jakarta.regular(size: 12))
