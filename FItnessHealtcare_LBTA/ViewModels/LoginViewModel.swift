@@ -17,6 +17,7 @@ final class LoginViewModel: ObservableObject {
     func createUserTextFieldNotEmpty() -> Bool {
         email.isEmpty || password.isEmpty || repeatPassword.isEmpty || fullname.isEmpty
     }
+    
     func loginTextFieldNotEmpty() -> Bool {
         email.isEmpty || password.isEmpty
     }

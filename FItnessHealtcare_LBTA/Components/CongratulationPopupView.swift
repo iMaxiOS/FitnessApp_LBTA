@@ -8,37 +8,40 @@
 import SwiftUI
 
 struct CongratulationPopupView: View {
-    @EnvironmentObject var session: SessionManager
+    let destination: DestinationPopupView
+    var error: String? = nil
+    
+    @Binding var isToggle: Bool
     
     var body: some View {
         ZStack(alignment: .bottom) {
             Color.lime
             
             VStack(spacing: 20) {
-                Image(systemName: "checkmark.circle.fill")
+                Image(systemName: destination == .error ? "exclamationmark.warninglight.fill" : "checkmark.circle.fill")
                     .resizable()
                     .foregroundStyle(.davyGray)
                     .frame(width: 100, height: 100)
                     .padding()
-                    .background(Circle().fill(.dimGray).opacity(0.4))
+                    .background(Circle().fill(destination == .error ? .clear : .dimGray).opacity(0.4))
                     .padding(.top)
                 
-                Text("Congratulation")
-                    .font(Font.Jakarta.bold(size: 24))
+                Text(destination == .error ? "Error!" : "Congratulation")
+                    .font(Font.Jakarta.bold(size: 28))
                 
                 ZStack {
-                    Text("Now you have unlitimed access to\nall workouts.\n A confirmation email has been\nsend to  ")
+                    Text(destination == .error ? error ?? "unknown" : "Now you have unlitimed access to\nall workouts.\n A confirmation email has been\nsend to  ")
                         .font(Font.Jakarta.medium(size: 11))
                     +
-                    Text("less...@gmail,com")
+                    Text(destination == .error ? "" : "less...@gmail,com")
                         .font(Font.Jakarta.bold(size: 11))
                 }
                 .multilineTextAlignment(.center)
-                
+                .padding(.horizontal, 10)
                 
                 Button {
                     withAnimation(.linear) {
-                        session.isSuccessful.toggle()
+                        isToggle = false
                     }
                 } label: {
                     Text("Close")
@@ -54,13 +57,13 @@ struct CongratulationPopupView: View {
             .foregroundStyle(.raisinBlack)
         }
         .clipShape(.rect(cornerRadius: 50))
-        .frame(height: 500)
+        .frame(height: destination == .error ? 400 : 500)
         .padding(10)
         .transition(.scale)
     }
 }
 
 #Preview {
-    CongratulationPopupView()
+    CongratulationPopupView(destination: .error, isToggle: .constant(false))
         .environmentObject(SessionManager())
 }

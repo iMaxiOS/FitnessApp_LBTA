@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct HomeView: View {
     
@@ -41,13 +42,24 @@ private extension HomeView {
     var topContentSection: some View {
         HStack(spacing: 10) {
             ZStack {
-                Image("pic 2")
-                    .resizable()
-                    .frame(width: 50, height: 50)
-                    .clipShape(Circle())
-                    .onTapGesture {
-                        session.path.append(.profile)
-                    }
+                if let url = session.currentUser?.photoURL {
+                    KFImage.url(url)
+                        .resizable()
+                        .fade(duration: 0.25)
+                        .scaledToFill()
+                } else {
+                    Image(systemName: "person")
+                        .resizable()
+                        .renderingMode(.template)
+                        .padding(15)
+                        .foregroundStyle(.lime)
+                        .background(Color.davyGray)
+                }
+            }
+            .frame(width: 50, height: 50)
+            .clipShape(Circle())
+            .onTapGesture {
+                session.path.append(.profile)
             }
             .overlay(alignment: .bottomTrailing) {
                 Circle()

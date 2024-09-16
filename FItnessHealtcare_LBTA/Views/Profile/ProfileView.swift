@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct ProfileView: View {
     @EnvironmentObject var session: SessionManager
@@ -44,19 +45,27 @@ private extension ProfileView {
             
             HStack(spacing: 16) {
                 ZStack {
-                    Image("pic 2")
-                        .resizable()
-                        .frame(width: 70, height: 70)
-                        .clipShape(Circle())
-                        .onTapGesture {
-                            
-                        }
+                    if let url = session.currentUser?.photoURL {
+                        KFImage.url(url)
+                            .resizable()
+                            .fade(duration: 0.25)
+                            .scaledToFill()
+                    } else {
+                        Image(systemName: "person")
+                            .resizable()
+                            .renderingMode(.template)
+                            .padding(22)
+                            .foregroundStyle(.lime)
+                            .background(Color.davyGray)
+                    }
                 }
+                .frame(width: 70, height: 70)
+                .clipShape(Circle())
                 .overlay(alignment: .bottomTrailing) {
                     Circle()
                         .fill(.lime)
-                        .frame(width: 22, height: 22)
-                        .offset(x: -5)
+                        .frame(width: 18, height: 18)
+                        .offset(x: -3)
                 }
                 
                 VStack(alignment: .leading, spacing: -2) {

@@ -45,7 +45,10 @@ struct MealDetailView: View {
                 PremiumPopupView(meal: meal)
             } else {
                 if session.isSuccessful {
-                    CongratulationPopupView()
+                    CongratulationPopupView(
+                        destination: .congratulation,
+                        isToggle: $session.isSuccessful
+                    )
                 }
             }
         })

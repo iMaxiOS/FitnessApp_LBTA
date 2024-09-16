@@ -52,7 +52,10 @@ struct WorkoutDetailView: View {
                 PremiumPopupView(workout: workout)
             } else {
                 if session.isSuccessful {
-                    CongratulationPopupView()
+                    CongratulationPopupView(
+                        destination: .congratulation,
+                        isToggle: $session.isSuccessful
+                    )
                 }
             }
         })

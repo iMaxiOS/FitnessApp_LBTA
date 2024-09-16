@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import PhotosUI
 
 struct LoginView: View {
     enum RouterAccount {
@@ -31,7 +32,7 @@ struct LoginView: View {
     @StateObject private var vm = LoginViewModel()
     
     var body: some View {
-        ZStack {
+        ZStack(alignment: .bottom) {
             Image(.bg)
                 .resizable()
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -42,7 +43,7 @@ struct LoginView: View {
             VStack {
                 switch router {
                 case .onboarding:
-                    loginOrCreateView
+                    loginAndCreateView
                 case .login:
                     loginView
                 case .create:
@@ -51,7 +52,6 @@ struct LoginView: View {
                     EmptyView()
                 }
             }
-            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottom)
         }
         .buttonStyle(.plain)
         .overlay(alignment: .topTrailing) {
@@ -61,6 +61,15 @@ struct LoginView: View {
         .overlay {
             if session.userSession != nil {
                 TabbarView()
+            }
+        }
+        .overlay {
+            if session.isSignInError {
+                CongratulationPopupView(
+                    destination: .error,
+                    error: session.errorMessage,
+                    isToggle: $session.isSignInError
+                )
             }
         }
     }
@@ -75,7 +84,7 @@ private extension LoginView {
             .clipped()
     }
     
-    var loginOrCreateView: some View {
+    var loginAndCreateView: some View {
         VStack {
             Button {
                 withAnimation(.spring) {
@@ -157,11 +166,10 @@ private extension LoginView {
                 VStack(spacing: 0) {
                     TextField("Your Email", text: $vm.email)
                         .foregroundStyle(.raisinBlack)
+                        .autocorrectionDisabled()
+                        .textInputAutocapitalization(.words)
                         .keyboardType(.emailAddress)
                         .submitLabel(.next)
-                        .autocapitalization(.words)
-                        .disableAutocorrection(true)
-                        .textInputAutocapitalization(.words)
                         .focused($focusedFieldForLogin, equals: .email)
                         .frame(height: 45)
                     
@@ -201,6 +209,8 @@ private extension LoginView {
                 .font(Font.Jakarta.medium(size: 16))
                 
                 Button {
+                    hideKeyboard()
+                    
                     Task {
                         try await session.signIn(email: vm.email, password: vm.password)
                     }
@@ -232,116 +242,151 @@ private extension LoginView {
     }
     
     var createView: some View {
-        VStack(alignment: .leading, spacing: 10) {
-            VStack(alignment: .leading, spacing: 5) {
-                Text("Create account!")
-                    .font(Font.Jakarta.bold(size: 34))
-                Text("Sign up and start getting fit")
-                    .font(Font.Jakarta.medium(size: 15))
-                    .foregroundStyle(.lime)
-            }
-            .foregroundStyle(.raisinBlack)
-            .frame(maxWidth: .infinity, alignment: .leading)
-            
-            VStack(spacing: 20) {
-                VStack(spacing: 0) {
-                    TextField("Your Email", text: $vm.email)
-                        .foregroundStyle(.raisinBlack)
-                        .keyboardType(.emailAddress)
-                        .submitLabel(.next)
-                        .autocapitalization(.words)
-                        .disableAutocorrection(true)
-                        .textInputAutocapitalization(.words)
-                        .frame(height: 45)
-                        .focused($focusedFieldForCreate, equals: .email)
-                    
-                    RoundedRectangle(cornerRadius: 1)
-                        .fill(.raisinBlack.opacity(0.5))
-                        .frame(height: 1)
-                }
-                
-                VStack(spacing: 0) {
-                    TextField("Full Name", text: $vm.fullname)
-                        .foregroundStyle(.raisinBlack)
-                        .frame(height: 45)
-                        .focused($focusedFieldForCreate, equals: .fullname)
-                    
-                    RoundedRectangle(cornerRadius: 1)
-                        .fill(.raisinBlack.opacity(0.5))
-                        .frame(height: 1)
-                }
-                
-                VStack(spacing: 0) {
-                    SecureField("Password", text: $vm.password)
-                        .foregroundStyle(.raisinBlack)
-                        .frame(height: 45)
-                        .focused($focusedFieldForCreate, equals: .password)
-                    
-                    RoundedRectangle(cornerRadius: 1)
-                        .fill(.raisinBlack.opacity(0.5))
-                        .frame(height: 1)
-                }
-                
-                VStack(spacing: 0) {
-                    SecureField("Repeat password", text: $vm.repeatPassword)
-                        .foregroundStyle(.raisinBlack)
-                        .frame(height: 45)
-                        .focused($focusedFieldForCreate, equals: .repeatPassword)
-                    
-                    RoundedRectangle(cornerRadius: 1)
-                        .fill(.raisinBlack.opacity(0.5))
-                        .frame(height: 1)
-                }
-                
-                Button {
-                    Task {
-                        try await session.createUser(
-                            email: vm.email,
-                            fullname: vm.fullname,
-                            password: vm.password
-                        )
-                    }
-                } label: {
-                    Capsule()
-                        .fill(.lime)
-                        .frame(height: 50)
-                        .frame(maxWidth: .infinity)
-                        .overlay {
-                            Text("Sign up")
-                                .font(Font.Jakarta.bold(size: 17))
-                                .foregroundStyle(.raisinBlack)
-                        }
-                }
-                .padding(.top)
-                .disabled(vm.createUserTextFieldNotEmpty())
-                
-                Button { } label: {
-                    Capsule()
-                        .stroke(lineWidth: 1)
-                        .fill(.lime)
-                        .frame(height: 50)
-                        .frame(maxWidth: .infinity)
-                        .overlay {
-                            Text("Continue with Facebook")
-                                .font(Font.Jakarta.bold(size: 17))
-                                .foregroundStyle(.lime)
-                        }
-                }
-                
-                HStack {
-                    Text("Terms of Use")
-                    
-                    Text("and")
-                        .font(Font.Jakarta.medium(size: 12))
-                    Text("Privacy Policy")
+        ScrollView(showsIndicators: false) {
+            VStack(spacing: 10) {
+                VStack(alignment: .leading, spacing: 5) {
+                    Text("Create account!")
+                        .font(Font.Jakarta.bold(size: 34))
+                    Text("Sign up and start getting fit")
+                        .font(Font.Jakarta.medium(size: 15))
+                        .foregroundStyle(.lime)
                 }
                 .foregroundStyle(.raisinBlack)
-                .font(Font.Jakarta.bold(size: 12))
-                .padding(.top)
+                .frame(maxWidth: .infinity, alignment: .leading)
+                
+                PhotosPicker(selection: $session.selectedPhoto, matching: .images) {
+                    ZStack {
+                        RoundedRectangle(cornerRadius: 53)
+                            .strokeBorder(
+                                LinearGradient(
+                                    colors: [Color(.lime), Color(.orange)],
+                                    startPoint: .topLeading,
+                                    endPoint: .bottomTrailing
+                                ), lineWidth: 4
+                            )
+                            .frame(width: 120, height: 120)
+                        
+                        if let image = session.selectedImage {
+                            Image(uiImage: image)
+                                .resizable()
+                                .scaledToFill()
+                                .frame(width: 106, height: 106)
+                                .clipShape(RoundedRectangle(cornerRadius: 48))
+                        }
+                        else {
+                            CustomPlaceholderView(frameSize: 106, iconSize: 55, cornerRadius: 48)
+                        }
+                    }
+                }
+                .buttonStyle(.plain)
+                .padding(.top, 20)
+                .padding(.bottom, 30)
+                
+                VStack(spacing: 20) {
+                    VStack(spacing: 0) {
+                        TextField("Your Email", text: $vm.email)
+                            .foregroundStyle(.raisinBlack)
+                            .keyboardType(.emailAddress)
+                            .submitLabel(.next)
+                            .autocorrectionDisabled()
+                            .textInputAutocapitalization(.words)
+                            .frame(height: 45)
+                            .focused($focusedFieldForCreate, equals: .email)
+                        
+                        RoundedRectangle(cornerRadius: 1)
+                            .fill(.raisinBlack.opacity(0.5))
+                            .frame(height: 1)
+                    }
+                    
+                    VStack(spacing: 0) {
+                        TextField("Full Name", text: $vm.fullname)
+                            .foregroundStyle(.raisinBlack)
+                            .submitLabel(.next)
+                            .textInputAutocapitalization(.never)
+                            .frame(height: 45)
+                            .focused($focusedFieldForCreate, equals: .fullname)
+                        
+                        RoundedRectangle(cornerRadius: 1)
+                            .fill(.raisinBlack.opacity(0.5))
+                            .frame(height: 1)
+                    }
+                    
+                    VStack(spacing: 0) {
+                        SecureField("Password", text: $vm.password)
+                            .foregroundStyle(.raisinBlack)
+                            .submitLabel(.next)
+                            .frame(height: 45)
+                            .focused($focusedFieldForCreate, equals: .password)
+                        
+                        RoundedRectangle(cornerRadius: 1)
+                            .fill(.raisinBlack.opacity(0.5))
+                            .frame(height: 1)
+                    }
+                    
+                    VStack(spacing: 0) {
+                        SecureField("Repeat password", text: $vm.repeatPassword)
+                            .foregroundStyle(.raisinBlack)
+                            .submitLabel(.done)
+                            .frame(height: 45)
+                            .focused($focusedFieldForCreate, equals: .repeatPassword)
+                        
+                        RoundedRectangle(cornerRadius: 1)
+                            .fill(.raisinBlack.opacity(0.5))
+                            .frame(height: 1)
+                    }
+                    
+                    Button {
+                        hideKeyboard()
+                        
+                        Task {
+                            try await session.createUser(
+                                email: vm.email,
+                                fullname: vm.fullname,
+                                password: vm.password
+                            )
+                        }
+                    } label: {
+                        Capsule()
+                            .fill(.lime)
+                            .frame(height: 50)
+                            .frame(maxWidth: .infinity)
+                            .overlay {
+                                Text("Sign up")
+                                    .font(Font.Jakarta.bold(size: 17))
+                                    .foregroundStyle(.raisinBlack)
+                            }
+                    }
+                    .padding(.top)
+                    .disabled(vm.createUserTextFieldNotEmpty())
+                    
+                    Button { } label: {
+                        Capsule()
+                            .stroke(lineWidth: 1)
+                            .fill(.lime)
+                            .frame(height: 50)
+                            .frame(maxWidth: .infinity)
+                            .overlay {
+                                Text("Continue with Facebook")
+                                    .font(Font.Jakarta.bold(size: 17))
+                                    .foregroundStyle(.lime)
+                            }
+                    }
+                    
+                    HStack {
+                        Text("Terms of Use")
+                        
+                        Text("and")
+                            .font(Font.Jakarta.medium(size: 12))
+                        Text("Privacy Policy")
+                    }
+                    .foregroundStyle(.raisinBlack)
+                    .font(Font.Jakarta.bold(size: 12))
+                    .padding(.top)
+                }
             }
+            .padding(.horizontal, 40)
+            .padding(.bottom, 50)
         }
-        .padding(.horizontal, 40)
-        .padding(.bottom, 50)
         .transition(.move(edge: .trailing))
         .onSubmit {
             switch focusedFieldForCreate {
