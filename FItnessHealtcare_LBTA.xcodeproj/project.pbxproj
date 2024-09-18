@@ -43,6 +43,8 @@
 		8861FE0B2C74CD88004B3B36 /* TrainerDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8861FE0A2C74CD88004B3B36 /* TrainerDetailView.swift */; };
 		8861FE0D2C74D65D004B3B36 /* BookAppointmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8861FE0C2C74D65D004B3B36 /* BookAppointmentView.swift */; };
 		8890BE8F2C9AD62900BB029E /* FacebookLogin in Frameworks */ = {isa = PBXBuildFile; productRef = 8890BE8E2C9AD62900BB029E /* FacebookLogin */; };
+		8890BE922C9AD89C00BB029E /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 8890BE912C9AD89C00BB029E /* GoogleSignIn */; };
+		8890BE942C9AD89C00BB029E /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 8890BE932C9AD89C00BB029E /* GoogleSignInSwift */; };
 		889ECB872C85C3250057E6AB /* HomeWorkoutModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889ECB862C85C3250057E6AB /* HomeWorkoutModel.swift */; };
 		889ECB892C85C3380057E6AB /* WorkoutDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889ECB882C85C3380057E6AB /* WorkoutDetailModel.swift */; };
 		889ECB8B2C85C34C0057E6AB /* MealDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889ECB8A2C85C34C0057E6AB /* MealDetailModel.swift */; };
@@ -74,7 +76,6 @@
 		88CB6AF12C7CCE9B00DB3BC9 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88CB6AF02C7CCE9B00DB3BC9 /* LoginViewModel.swift */; };
 		88CB6AF32C7DF24E00DB3BC9 /* WorkoutViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88CB6AF22C7DF24E00DB3BC9 /* WorkoutViewModel.swift */; };
 		88CB6AF52C7F163900DB3BC9 /* MealCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88CB6AF42C7F163900DB3BC9 /* MealCellView.swift */; };
-		88FC3B6D2C998334007ECBF1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88FC3B6C2C998334007ECBF1 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -141,7 +142,6 @@
 		88CB6AF02C7CCE9B00DB3BC9 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		88CB6AF22C7DF24E00DB3BC9 /* WorkoutViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutViewModel.swift; sourceTree = "<group>"; };
 		88CB6AF42C7F163900DB3BC9 /* MealCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealCellView.swift; sourceTree = "<group>"; };
-		88FC3B6C2C998334007ECBF1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		88FC3B6E2C99939E007ECBF1 /* FItnessHealtcare_LBTA.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FItnessHealtcare_LBTA.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -153,9 +153,11 @@
 				889ECB9A2C86F5900057E6AB /* FirebaseDatabase in Frameworks */,
 				889ECB9E2C86F5900057E6AB /* FirebaseStorage in Frameworks */,
 				8890BE8F2C9AD62900BB029E /* FacebookLogin in Frameworks */,
+				8890BE942C9AD89C00BB029E /* GoogleSignInSwift in Frameworks */,
 				889ECB982C86F5900057E6AB /* FirebaseAuth in Frameworks */,
 				889ECB9C2C86F5900057E6AB /* FirebaseFirestore in Frameworks */,
 				88576BDF2C987429008D3D22 /* Kingfisher in Frameworks */,
+				8890BE922C9AD89C00BB029E /* GoogleSignIn in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -292,7 +294,6 @@
 			isa = PBXGroup;
 			children = (
 				88FC3B6E2C99939E007ECBF1 /* FItnessHealtcare_LBTA.entitlements */,
-				88FC3B6C2C998334007ECBF1 /* GoogleService-Info.plist */,
 				884122CB2C6B314F00C42074 /* FItnessHealtcare-LBTA-Info.plist */,
 				88C8DB492C69F2B300FC3F7F /* FItnessHealtcare_LBTAApp.swift */,
 				88C8DB592C69F95C00FC3F7F /* Views */,
@@ -424,6 +425,8 @@
 				889ECB9D2C86F5900057E6AB /* FirebaseStorage */,
 				88576BDE2C987429008D3D22 /* Kingfisher */,
 				8890BE8E2C9AD62900BB029E /* FacebookLogin */,
+				8890BE912C9AD89C00BB029E /* GoogleSignIn */,
+				8890BE932C9AD89C00BB029E /* GoogleSignInSwift */,
 			);
 			productName = FItnessHealtcare_LBTA;
 			productReference = 88C8DB462C69F2B300FC3F7F /* FItnessHealtcare_LBTA.app */;
@@ -457,6 +460,7 @@
 				889ECB962C86F5900057E6AB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				88576BDD2C987429008D3D22 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				8890BE8D2C9AD62900BB029E /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */,
+				8890BE902C9AD89C00BB029E /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
 			);
 			productRefGroup = 88C8DB472C69F2B300FC3F7F /* Products */;
 			projectDirPath = "";
@@ -478,7 +482,6 @@
 				884122C92C6B30E400C42074 /* PlusJakartaSans-Medium.ttf in Resources */,
 				88C8DB4E2C69F2B400FC3F7F /* Assets.xcassets in Resources */,
 				884122C82C6B30E400C42074 /* PlusJakartaSans-SemiBold.ttf in Resources */,
-				88FC3B6D2C998334007ECBF1 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -771,6 +774,14 @@
 				minimumVersion = 14.1.0;
 			};
 		};
+		8890BE902C9AD89C00BB029E /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/google/GoogleSignIn-iOS";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 8.0.0;
+			};
+		};
 		889ECB962C86F5900057E6AB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
@@ -791,6 +802,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 8890BE8D2C9AD62900BB029E /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
 			productName = FacebookLogin;
+		};
+		8890BE912C9AD89C00BB029E /* GoogleSignIn */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8890BE902C9AD89C00BB029E /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			productName = GoogleSignIn;
+		};
+		8890BE932C9AD89C00BB029E /* GoogleSignInSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8890BE902C9AD89C00BB029E /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			productName = GoogleSignInSwift;
 		};
 		889ECB972C86F5900057E6AB /* FirebaseAuth */ = {
 			isa = XCSwiftPackageProductDependency;

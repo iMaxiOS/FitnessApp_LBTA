@@ -15,6 +15,7 @@ import PhotosUI
 import AuthenticationServices
 import CryptoKit
 import FBSDKLoginKit
+import GoogleSignIn
 
 enum DestinationPopupView {
     case error, congratulation
@@ -212,6 +213,44 @@ extension SessionManager {
     }
     
     //MARK: - Sign in with Google
+    enum SignInError: Error {
+        case presentingWindowNotFound
+        case googleSignInFailed
+    }
+    
+    private func getRootViewController() async -> UIViewController? {
+        guard let scene = UIApplication.shared.connectedScenes.first as? UIWindowScene else {
+            return nil
+        }
+        return scene.windows.first?.rootViewController
+    }
+    
+    func signInWithGoogle() async throws {
+        guard let presentingVC = await getRootViewController() else {
+            throw SignInError.presentingWindowNotFound
+        }
+        
+        let result = try await GIDSignIn.sharedInstance.signIn(
+            withPresenting: presentingVC
+        )
+        
+        let user = result.user
+        guard let idToken = user.idToken?.tokenString else {
+            throw SignInError.googleSignInFailed
+        }
+        
+        let credential = GoogleAuthProvider.credential(withIDToken: idToken, accessToken: user.accessToken.tokenString)
+        let authResult = try await Auth.auth().signIn(with: credential)
+        userSession = authResult.user
+        
+        try await saveUserDetails(
+            userId: authResult.user.uid,
+            fullname: authResult.user.displayName ?? "",
+            email: authResult.user.email ?? ""
+        )
+        
+        await fetchUser()
+    }
     
     func createUser(email: String, fullname: String, password: String) async throws {
         do {

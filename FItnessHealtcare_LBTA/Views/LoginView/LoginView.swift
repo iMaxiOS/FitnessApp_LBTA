@@ -163,7 +163,11 @@ private extension LoginView {
                     .clipShape(.circle)
                 }
                 
-                Button {} label: {
+                Button {
+                    Task {
+                        try await session.signInWithGoogle()
+                    }
+                } label: {
                     ZStack {
                         Image(.google)
                             .resizable()
