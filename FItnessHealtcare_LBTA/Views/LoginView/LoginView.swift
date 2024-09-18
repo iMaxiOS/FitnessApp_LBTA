@@ -7,6 +7,7 @@
 
 import SwiftUI
 import PhotosUI
+import AuthenticationServices
 
 struct LoginView: View {
     enum RouterAccount {
@@ -102,16 +103,6 @@ private extension LoginView {
                     }
             }
             
-            HStack(spacing: 10) {
-                RoundedRectangle(cornerRadius: 1)
-                    .frame(height: 1)
-                Text("OR")
-                RoundedRectangle(cornerRadius: 1)
-                    .frame(height: 1)
-            }
-            .foregroundStyle(.white.opacity(0.7))
-            .frame(height: 40)
-            
             Button {
                 withAnimation(.spring) {
                     router = .create
@@ -127,6 +118,59 @@ private extension LoginView {
                             .font(Font.Jakarta.bold(size: 17))
                             .foregroundStyle(.lime)
                     }
+            }
+            
+            HStack(spacing: 10) {
+                RoundedRectangle(cornerRadius: 1)
+                    .frame(height: 1)
+                Text("OR")
+                RoundedRectangle(cornerRadius: 1)
+                    .frame(height: 1)
+            }
+            .foregroundStyle(.white.opacity(0.7))
+            .frame(height: 40)
+            .padding(.horizontal, 30)
+            
+            HStack(spacing: 40) {
+                Button {
+                    session.startSignInWithAppleFlow()
+                } label: {
+                    ZStack {
+                        Image(systemName: "apple.logo")
+                            .renderingMode(.template)
+                            .font(.title2)
+                            .foregroundStyle(.lime)
+                    }
+                    .frame(width: 50, height: 50)
+                    .background(.black)
+                    .clipShape(.circle)
+                }
+                
+                Button {} label: {
+                    ZStack {
+                        Image(.facebook)
+                            .resizable()
+                            .renderingMode(.template)
+                            .foregroundStyle(.lime)
+                            .frame(width: 20, height: 20)
+                    }
+                    .frame(width: 50, height: 50)
+                    .background(.black)
+                    .clipShape(.circle)
+                }
+                
+                Button {} label: {
+                    ZStack {
+                        Image(.google)
+                            .resizable()
+                            .renderingMode(.template)
+                            .foregroundStyle(.lime)
+                            .frame(width: 20, height: 20)
+                    }
+                    .frame(width: 50, height: 50)
+                    .background(.black)
+                    .clipShape(.circle)
+                }
             }
         }
         .buttonStyle(.plain)
@@ -359,19 +403,6 @@ private extension LoginView {
                     .padding(.top)
                     .disabled(vm.createUserTextFieldNotEmpty())
                     
-                    Button { } label: {
-                        Capsule()
-                            .stroke(lineWidth: 1)
-                            .fill(.lime)
-                            .frame(height: 50)
-                            .frame(maxWidth: .infinity)
-                            .overlay {
-                                Text("Continue with Facebook")
-                                    .font(Font.Jakarta.bold(size: 17))
-                                    .foregroundStyle(.lime)
-                            }
-                    }
-                    
                     HStack {
                         Text("Terms of Use")
                         
@@ -379,9 +410,9 @@ private extension LoginView {
                             .font(Font.Jakarta.medium(size: 12))
                         Text("Privacy Policy")
                     }
-                    .foregroundStyle(.raisinBlack)
+                    .foregroundStyle(.lime)
                     .font(Font.Jakarta.bold(size: 12))
-                    .padding(.top)
+                    .padding(.top, 30)
                 }
             }
             .padding(.horizontal, 40)

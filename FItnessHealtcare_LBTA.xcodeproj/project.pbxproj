@@ -54,7 +54,6 @@
 		889ECB9C2C86F5900057E6AB /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 889ECB9B2C86F5900057E6AB /* FirebaseFirestore */; };
 		889ECB9E2C86F5900057E6AB /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 889ECB9D2C86F5900057E6AB /* FirebaseStorage */; };
 		889ECBA22C86FB240057E6AB /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889ECBA12C86FB240057E6AB /* User.swift */; };
-		889ECBA62C88B1CC0057E6AB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 889ECBA52C88B1CC0057E6AB /* GoogleService-Info.plist */; };
 		88C8DB4A2C69F2B300FC3F7F /* FItnessHealtcare_LBTAApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C8DB492C69F2B300FC3F7F /* FItnessHealtcare_LBTAApp.swift */; };
 		88C8DB4C2C69F2B300FC3F7F /* WorkoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C8DB4B2C69F2B300FC3F7F /* WorkoutView.swift */; };
 		88C8DB4E2C69F2B400FC3F7F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 88C8DB4D2C69F2B400FC3F7F /* Assets.xcassets */; };
@@ -74,6 +73,7 @@
 		88CB6AF12C7CCE9B00DB3BC9 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88CB6AF02C7CCE9B00DB3BC9 /* LoginViewModel.swift */; };
 		88CB6AF32C7DF24E00DB3BC9 /* WorkoutViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88CB6AF22C7DF24E00DB3BC9 /* WorkoutViewModel.swift */; };
 		88CB6AF52C7F163900DB3BC9 /* MealCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88CB6AF42C7F163900DB3BC9 /* MealCellView.swift */; };
+		88FC3B6D2C998334007ECBF1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88FC3B6C2C998334007ECBF1 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -120,7 +120,6 @@
 		889ECB902C85C38A0057E6AB /* ChartsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartsData.swift; sourceTree = "<group>"; };
 		889ECB922C85C39C0057E6AB /* MyPlanData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPlanData.swift; sourceTree = "<group>"; };
 		889ECBA12C86FB240057E6AB /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		889ECBA52C88B1CC0057E6AB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		88C8DB462C69F2B300FC3F7F /* FItnessHealtcare_LBTA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FItnessHealtcare_LBTA.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		88C8DB492C69F2B300FC3F7F /* FItnessHealtcare_LBTAApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FItnessHealtcare_LBTAApp.swift; sourceTree = "<group>"; };
 		88C8DB4B2C69F2B300FC3F7F /* WorkoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutView.swift; sourceTree = "<group>"; };
@@ -141,6 +140,8 @@
 		88CB6AF02C7CCE9B00DB3BC9 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		88CB6AF22C7DF24E00DB3BC9 /* WorkoutViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutViewModel.swift; sourceTree = "<group>"; };
 		88CB6AF42C7F163900DB3BC9 /* MealCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealCellView.swift; sourceTree = "<group>"; };
+		88FC3B6C2C998334007ECBF1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		88FC3B6E2C99939E007ECBF1 /* FItnessHealtcare_LBTA.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FItnessHealtcare_LBTA.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -288,8 +289,9 @@
 		88C8DB482C69F2B300FC3F7F /* FItnessHealtcare_LBTA */ = {
 			isa = PBXGroup;
 			children = (
+				88FC3B6E2C99939E007ECBF1 /* FItnessHealtcare_LBTA.entitlements */,
+				88FC3B6C2C998334007ECBF1 /* GoogleService-Info.plist */,
 				884122CB2C6B314F00C42074 /* FItnessHealtcare-LBTA-Info.plist */,
-				889ECBA52C88B1CC0057E6AB /* GoogleService-Info.plist */,
 				88C8DB492C69F2B300FC3F7F /* FItnessHealtcare_LBTAApp.swift */,
 				88C8DB592C69F95C00FC3F7F /* Views */,
 				88C8DB5C2C69F97000FC3F7F /* ViewModels */,
@@ -467,12 +469,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				884122C72C6B30E400C42074 /* PlusJakartaSans-Bold.ttf in Resources */,
-				889ECBA62C88B1CC0057E6AB /* GoogleService-Info.plist in Resources */,
 				884122CA2C6B30E400C42074 /* PlusJakartaSans-Regular.ttf in Resources */,
 				88C8DB512C69F2B400FC3F7F /* Preview Assets.xcassets in Resources */,
 				884122C92C6B30E400C42074 /* PlusJakartaSans-Medium.ttf in Resources */,
 				88C8DB4E2C69F2B400FC3F7F /* Assets.xcassets in Resources */,
 				884122C82C6B30E400C42074 /* PlusJakartaSans-SemiBold.ttf in Resources */,
+				88FC3B6D2C998334007ECBF1 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -668,10 +670,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = FItnessHealtcare_LBTA/FItnessHealtcare_LBTA.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"FItnessHealtcare_LBTA/Preview Content\"";
-				DEVELOPMENT_TEAM = R4XB56HC9M;
+				DEVELOPMENT_TEAM = NS8SXBDV2X;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "FItnessHealtcare-LBTA-Info.plist";
@@ -698,10 +701,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = FItnessHealtcare_LBTA/FItnessHealtcare_LBTA.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"FItnessHealtcare_LBTA/Preview Content\"";
-				DEVELOPMENT_TEAM = R4XB56HC9M;
+				DEVELOPMENT_TEAM = NS8SXBDV2X;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "FItnessHealtcare-LBTA-Info.plist";

@@ -7,6 +7,7 @@
 
 import Foundation
 import Firebase
+import CryptoKit
 
 final class LoginViewModel: ObservableObject {
     @Published var email: String = ""

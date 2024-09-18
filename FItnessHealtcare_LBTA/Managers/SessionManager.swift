@@ -12,6 +12,8 @@ import FirebaseAuth
 import FirebaseFirestore
 import FirebaseStorage
 import PhotosUI
+import AuthenticationServices
+import CryptoKit
 
 enum DestinationPopupView {
     case error, congratulation
@@ -25,7 +27,7 @@ enum RouterDestination: Hashable {
     case workout
     case statistics
     case plan
-    case profile 
+    case profile
     case workoutDetail(WorkoutModel)
     case mealDetail(MealModel)
     case trainerDetail(WorkoutModel)
@@ -33,7 +35,10 @@ enum RouterDestination: Hashable {
 }
 
 @MainActor
-final class SessionManager: ObservableObject {
+final class SessionManager: NSObject, ObservableObject, ASAuthorizationControllerDelegate, ASAuthorizationControllerPresentationContextProviding {
+    
+    @Published private var currentNonce: String?
+    
     @Published var userSession: FirebaseAuth.User?
     @Published var currentUser: User?
     
@@ -50,7 +55,7 @@ final class SessionManager: ObservableObject {
         didSet {
             if let selectedPhoto {
                 Task {
-                  await processPhoto(photo: selectedPhoto)
+                    await processPhoto(photo: selectedPhoto)
                 }
             }
         }
@@ -60,15 +65,86 @@ final class SessionManager: ObservableObject {
     private let firestore = Firestore.firestore()
     private let storage = Storage.storage()
     
-    init() {
+    override init() {
         self.userSession = Auth.auth().currentUser
+    }
+    
+    func startSignInWithAppleFlow() {
+        let nonce = randomNonceString()
+        currentNonce = nonce
         
-        Task {
-            await fetchUser()
+        let appleIDProvider = ASAuthorizationAppleIDProvider()
+        let request = appleIDProvider.createRequest()
+        request.requestedScopes = [.fullName, .email]
+        request.nonce = sha256(nonce)
+        
+        let authorizationController = ASAuthorizationController(authorizationRequests: [request])
+        authorizationController.delegate = self
+        authorizationController.presentationContextProvider = self
+        authorizationController.performRequests()
+    }
+    
+    // MARK: - Обработка результата авторизации
+    func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
+        if let appleIDCredential = authorization.credential as? ASAuthorizationAppleIDCredential {
+            guard let nonce = currentNonce else {
+                fatalError("Invalid state: A login callback was received, but no login request was sent.")
+            }
+            
+            guard let appleIDToken = appleIDCredential.identityToken else {
+                print("DEBUG: Failed to log with error, cant get token")
+                return
+            }
+            
+            guard let idTokenString = String(data: appleIDToken, encoding: .utf8) else {
+                print("DEBUG: Failed with error: \(appleIDToken.debugDescription)")
+                return
+            }
+            
+            Task {
+                do {
+                    let credential = OAuthProvider.credential(providerID: .apple, idToken: idTokenString, rawNonce: nonce)
+                    let authResult = try await Auth.auth().signIn(with: credential)
+                    
+                    userSession = authResult.user
+                    
+                    if let name = appleIDCredential.fullName {
+                        try await saveUserDetails(
+                            userId: authResult.user.uid,
+                            fullname: name.givenName ?? "",
+                            email: authResult.user.email ?? ""
+                        )
+                    }
+                    
+                    await fetchUser()
+                } catch {
+                    withAnimation(.bouncy) {
+                        isSignInError.toggle()
+                    }
+                    
+                    errorMessage = error.localizedDescription
+                    print("DEBUG: Error signing in with Apple: \(error.localizedDescription)")
+                }
+            }
         }
     }
     
-    private func processPhoto(photo: PhotosPickerItem) async {
+    func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {
+        withAnimation(.bouncy) {
+            isSignInError.toggle()
+        }
+        
+        errorMessage = "Authorization failed: \(error.localizedDescription)"
+        print("DEBUG: Authorization failed: \(error.localizedDescription)")
+    }
+    
+    func presentationAnchor(for controller: ASAuthorizationController) -> ASPresentationAnchor {
+        return ASPresentationAnchor()
+    }
+}
+
+extension SessionManager {
+    func processPhoto(photo: PhotosPickerItem) async {
         Task {
             do {
                 let data = try await selectedPhoto?.loadTransferable(type: Data.self)
@@ -78,21 +154,22 @@ final class SessionManager: ObservableObject {
                 }
                 
                 self.selectedImage = image
-            } catch let error {
-                print(error)
+            } catch {
+                print(error.localizedDescription)
             }
         }
     }
-    
     
     func navigate(to: RouterDestination) {
         path.append(to)
     }
     
+    //MARK: - Sign in with Email
     func signIn(email: String, password: String) async throws {
         do {
             let result = try await auth.signIn(withEmail: email, password: password)
-            self.userSession = result.user
+            userSession = result.user
+            
             await fetchUser()
         } catch {
             withAnimation(.bouncy) {
@@ -168,7 +245,7 @@ final class SessionManager: ObservableObject {
         guard let uid = auth.currentUser?.uid else {
             return
         }
-
+        
         do {
             let snapshot = try await Firestore.firestore().collection("users").document(uid).getDocument()
             
@@ -180,5 +257,44 @@ final class SessionManager: ObservableObject {
         } catch {
             print("DEBUG: Error fetching user data: \(error.localizedDescription)")
         }
+    }
+}
+
+private extension SessionManager {
+    func randomNonceString(length: Int = 32) -> String {
+        let charset: Array<Character> =
+        Array("0123456789ABCDEFGHIJKLMNOPQRSTUVXYZabcdefghijklmnopqrstuvwxyz-._")
+        var result = ""
+        var remainingLength = length
+        
+        while remainingLength > 0 {
+            let randoms: [UInt8] = (0..<16).map { _ in
+                var random: UInt8 = 0
+                let errorCode = SecRandomCopyBytes(kSecRandomDefault, 1, &random)
+                if errorCode != errSecSuccess {
+                    fatalError("DEBUG: SecRandomCopyBytes return error.")
+                }
+                return random
+            }
+            
+            randoms.forEach { random in
+                if remainingLength == 0 {
+                    return
+                }
+                
+                if random < charset.count {
+                    result.append(charset[Int(random)])
+                    remainingLength -= 1
+                }
+            }
+        }
+        
+        return result
+    }
+    
+    func sha256(_ input: String) -> String {
+        let inputData = Data(input.utf8)
+        let hashedData = SHA256.hash(data: inputData)
+        return hashedData.compactMap { String(format: "%02x", $0) }.joined()
     }
 }
