@@ -146,7 +146,11 @@ private extension LoginView {
                     .clipShape(.circle)
                 }
                 
-                Button {} label: {
+                Button {
+                    Task {
+                        try await session.signInWithFacebook()
+                    }
+                } label: {
                     ZStack {
                         Image(.facebook)
                             .resizable()

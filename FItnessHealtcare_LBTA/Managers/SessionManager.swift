@@ -14,6 +14,7 @@ import FirebaseStorage
 import PhotosUI
 import AuthenticationServices
 import CryptoKit
+import FBSDKLoginKit
 
 enum DestinationPopupView {
     case error, congratulation
@@ -180,6 +181,37 @@ extension SessionManager {
             print("DEBUG: Failed to log in with error \(error.localizedDescription)")
         }
     }
+    
+    //MARK: - Sign in with Facebook
+    func signInWithFacebook() async throws {
+        let loginManager = LoginManager()
+        
+        let result = try await withCheckedThrowingContinuation { (continuation: CheckedContinuation<String, Error>) in
+            loginManager.logIn(permissions: ["email"], from: nil) { loginResult, error in
+                if let error = error {
+                    continuation.resume(throwing: error)
+                } else if let result = loginResult, !result.isCancelled, let tokenString = result.token?.tokenString {
+                    continuation.resume(returning: tokenString)
+                } else {
+                    continuation.resume(throwing: NSError(domain: "FacebookLoginError", code: 1, userInfo: [NSLocalizedDescriptionKey: "Login was canceled."]))
+                }
+            }
+        }
+        
+        let credential = FacebookAuthProvider.credential(withAccessToken: result)
+        let authResult = try await Auth.auth().signIn(with: credential)
+        userSession = authResult.user
+        
+        try await saveUserDetails(
+            userId: authResult.user.uid,
+            fullname: authResult.user.displayName ?? "",
+            email: authResult.user.email ?? ""
+        )
+        
+        await fetchUser()
+    }
+    
+    //MARK: - Sign in with Google
     
     func createUser(email: String, fullname: String, password: String) async throws {
         do {
