@@ -30,6 +30,8 @@
 		884122EC2C6FA7D300C42074 /* BackNavigationButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884122EB2C6FA7D300C42074 /* BackNavigationButtonView.swift */; };
 		884122EE2C6FADF200C42074 /* Ext+UINavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884122ED2C6FADF200C42074 /* Ext+UINavigation.swift */; };
 		884122F02C6FAEB800C42074 /* ProfileCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884122EF2C6FAEB800C42074 /* ProfileCellView.swift */; };
+		884C15B02CA2AB30007863CD /* MovieDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884C15AF2CA2AB30007863CD /* MovieDetailView.swift */; };
+		884C15B42CA2D918007863CD /* movie.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 884C15B32CA2D918007863CD /* movie.mp4 */; };
 		88576BDF2C987429008D3D22 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 88576BDE2C987429008D3D22 /* Kingfisher */; };
 		8857CEEB2C904E1800CE218B /* CustomPlaceholderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8857CEEA2C904E1800CE218B /* CustomPlaceholderView.swift */; };
 		8857CEED2C9059F800CE218B /* Ext+UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8857CEEC2C9059F800CE218B /* Ext+UIImage.swift */; };
@@ -103,6 +105,8 @@
 		884122EB2C6FA7D300C42074 /* BackNavigationButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackNavigationButtonView.swift; sourceTree = "<group>"; };
 		884122ED2C6FADF200C42074 /* Ext+UINavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ext+UINavigation.swift"; sourceTree = "<group>"; };
 		884122EF2C6FAEB800C42074 /* ProfileCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCellView.swift; sourceTree = "<group>"; };
+		884C15AF2CA2AB30007863CD /* MovieDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailView.swift; sourceTree = "<group>"; };
+		884C15B32CA2D918007863CD /* movie.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = movie.mp4; sourceTree = "<group>"; };
 		8857CEEA2C904E1800CE218B /* CustomPlaceholderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPlaceholderView.swift; sourceTree = "<group>"; };
 		8857CEEC2C9059F800CE218B /* Ext+UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ext+UIImage.swift"; sourceTree = "<group>"; };
 		885E61B82C806E1A00CB93E2 /* ToolsTypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolsTypeView.swift; sourceTree = "<group>"; };
@@ -262,6 +266,7 @@
 				8861FDFF2C732A92004B3B36 /* WorkoutDetailView.swift */,
 				8861FE0A2C74CD88004B3B36 /* TrainerDetailView.swift */,
 				8861FE0C2C74D65D004B3B36 /* BookAppointmentView.swift */,
+				884C15AF2CA2AB30007863CD /* MovieDetailView.swift */,
 			);
 			path = WorkoutDetailView;
 			sourceTree = "<group>";
@@ -296,6 +301,7 @@
 				88FC3B6E2C99939E007ECBF1 /* FItnessHealtcare_LBTA.entitlements */,
 				884122CB2C6B314F00C42074 /* FItnessHealtcare-LBTA-Info.plist */,
 				88C8DB492C69F2B300FC3F7F /* FItnessHealtcare_LBTAApp.swift */,
+				884C15B32CA2D918007863CD /* movie.mp4 */,
 				88C8DB592C69F95C00FC3F7F /* Views */,
 				88C8DB5C2C69F97000FC3F7F /* ViewModels */,
 				88C8DB5A2C69F96300FC3F7F /* Models */,
@@ -476,6 +482,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				884C15B42CA2D918007863CD /* movie.mp4 in Resources */,
 				884122C72C6B30E400C42074 /* PlusJakartaSans-Bold.ttf in Resources */,
 				884122CA2C6B30E400C42074 /* PlusJakartaSans-Regular.ttf in Resources */,
 				88C8DB512C69F2B400FC3F7F /* Preview Assets.xcassets in Resources */,
@@ -498,6 +505,7 @@
 				8861FE0D2C74D65D004B3B36 /* BookAppointmentView.swift in Sources */,
 				884122DE2C6CE4FE00C42074 /* StatisticsCalendarCellView.swift in Sources */,
 				885E61B92C806E1A00CB93E2 /* ToolsTypeView.swift in Sources */,
+				884C15B02CA2AB30007863CD /* MovieDetailView.swift in Sources */,
 				884122CE2C6B3ABC00C42074 /* HomeView.swift in Sources */,
 				88CB6AF12C7CCE9B00DB3BC9 /* LoginViewModel.swift in Sources */,
 				8857CEED2C9059F800CE218B /* Ext+UIImage.swift in Sources */,

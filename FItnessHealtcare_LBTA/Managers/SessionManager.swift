@@ -34,6 +34,7 @@ enum RouterDestination: Hashable {
     case mealDetail(MealModel)
     case trainerDetail(WorkoutModel)
     case appointment(WorkoutModel)
+    case movie
 }
 
 @MainActor

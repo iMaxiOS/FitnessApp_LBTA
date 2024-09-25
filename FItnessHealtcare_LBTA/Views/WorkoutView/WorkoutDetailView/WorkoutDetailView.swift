@@ -101,6 +101,20 @@ private extension WorkoutDetailView {
                 }
                 .padding(20)
             }
+            .overlay {
+                Button {
+                    session.path.append(.movie)
+                } label: {
+                    Image(systemName: "play.fill")
+                        .resizable()
+                        .foregroundStyle(.raisinBlack)
+                        .frame(width: 34, height: 34)
+                        .foregroundStyle(.white)
+                        .padding(30)
+                        .background(Circle().fill(.lime))
+                }
+                .buttonStyle(.plain)
+            }
     }
     
     var aboutSectionView: some View {
@@ -109,7 +123,7 @@ private extension WorkoutDetailView {
                 Text("About")
                     .font(Font.Jakarta.medium(size: 17))
                 
-                Text("Buitld chast muscles doesn`t have to be complicated, thse 8 bodyweight exercises that will give you excellent results at home. No equipment.")
+                Text("Build chest muscles doesn't have to be complicated, the 8 bodyweight exercises that will give you excellent results at home. No equipment.")
                     .font(Font.Jakarta.regular(size: 13))
                     .foregroundStyle(.tint.opacity(0.7))
                 

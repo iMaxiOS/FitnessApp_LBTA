@@ -41,6 +41,9 @@ extension View {
             case .appointment(let workout):
                 BookAppointmentView(workout: workout)
                     .toolbar(.hidden, for: .navigationBar)
+            case .movie:
+                MovieDetailView()
+                    .toolbar(.hidden, for: .navigationBar)
             }
         }
     }
